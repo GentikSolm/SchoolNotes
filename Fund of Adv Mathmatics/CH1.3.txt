@@ -1,9 +1,17 @@
 A U B = {x: x E A or x E B}
 A (upside down U) B = {x: x E A and x E B}
-* Two set A and B are called disjoint if A intersetcion B = null
+* Two set A and B are called disjoint if A intersection B = null
 
 A - B {x: x E A and x !E B}
 * Difference between A and B
   - Also may be denoted as A\B
 
 If U is the universal set, and A is a subset of U, then A^c = U-A = {x E U: x !E A}
+* Property:
+  - The complement of a complement is always the original set
+
+Collection of sets:
+  - Let A1, A2, . . ., An be sets (n >= 2 is an integer)
+  - Then A1 U A2 U . . ., An
+  = {x: x E Ai, for some i E {1,2, . . .,n}}
+  * U and (intersection) can be used in a summation-like form.
