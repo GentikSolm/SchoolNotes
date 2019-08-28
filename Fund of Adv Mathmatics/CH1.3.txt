@@ -1,0 +1,9 @@
+A U B = {x: x E A or x E B}
+A (upside down U) B = {x: x E A and x E B}
+* Two set A and B are called disjoint if A intersetcion B = null
+
+A - B {x: x E A and x !E B}
+* Difference between A and B
+  - Also may be denoted as A\B
+
+If U is the universal set, and A is a subset of U, then A^c = U-A = {x E U: x !E A}
