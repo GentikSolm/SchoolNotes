@@ -1,0 +1,8 @@
+cout << fixed << scientific << showpoint << showpos << right << left
+"" = string
+'' = char
+auto keyword
+  auto ammount = 100;
+    returns ammount as an int == 100
+cin.get()
+  Pauses program / gets whitespace
