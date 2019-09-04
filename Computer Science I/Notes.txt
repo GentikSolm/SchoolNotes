@@ -6,3 +6,13 @@ auto keyword
     returns ammount as an int == 100
 cin.get()
   Pauses program / gets whitespace
+
+
+Start programs with
+/* Lab 1 : main.cpp
+Author: Joshua Brown
+jgb38@uakron.edu
+Purpose: Demonstration of a simple program */
+
+command to compile cpp!
+  - "cl /EHsc"

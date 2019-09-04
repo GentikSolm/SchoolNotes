@@ -1,2 +1,0 @@
-command to compile cpp!
-  - "cl /EHsc"
