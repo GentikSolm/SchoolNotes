@@ -16,3 +16,13 @@ Purpose: Demonstration of a simple program */
 
 command to compile cpp!
   - "cl /EHsc"
+
+
+  /*
+    COPYRIGHT (C) 2019 Joshua Brown (jgb38) All rights reserved.
+    CSI assignment 1 A
+    Auther. Josh Brown
+            jgb38@zips.uakron.edu
+    Version 1.01 09.09.2019
+    Purpose: Learning program Documentation and Standards.
+  */

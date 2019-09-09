@@ -53,4 +53,23 @@ Misspelling 'endl'
   ASSGN1-A.cpp
   ASSGN1-A.cpp(19): error C2065: 'enl': undeclared identifier
 
-G)
+G) Removed < from cout
+  ASSGN1-A.cpp
+  ASSGN1-A.cpp(19): error C2563: mismatch in formal parameter list
+  ASSGN1-A.cpp(19): error C2568: '<<': unable to resolve function overload
+  ASSGN1-A.cpp(19): note: could be 'std::basic_ostream<_Elem,_Traits> &std::endl(std::basic_ostream<_Elem,_Traits> &)'
+
+H) Removed std::
+  ASSGN1-A.cpp
+  ASSGN1-A.cpp(20): error C2065: 'fixed': undeclared identifier
+
+I) Comment out 'using std::endl;'
+  ASSGN1-A.cpp
+  ASSGN1-A.cpp(19): error C2065: 'endl': undeclared identifier
+  ASSGN1-A.cpp(21): error C2065: 'endl': undeclared identifier
+
+J) Removed ending }
+  ASSGN1-A.cpp
+  ASSGN1-A.cpp(19): error C2065: 'endl': undeclared identifier
+  ASSGN1-A.cpp(21): error C2065: 'endl': undeclared identifier
+  ASSGN1-A.cpp(14): fatal error C1075: '{': no matching token found
