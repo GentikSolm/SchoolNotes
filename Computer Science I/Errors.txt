@@ -1,0 +1,56 @@
+
+
+
+A) Space between < and iostream:
+  No error when compiling or running.
+
+B) Removing a < from #include
+  ASSGN1-A.cpp
+  ASSGN1-A.cpp(7): error C2006: '#include': expected "FILENAME" or <FILENAME>
+  ASSGN1-A.cpp(7): fatal error C1083: Cannot open include file: '': No such file or directory
+
+C) Removing int before main()
+  ASSGN1-A.cpp
+  ASSGN1-A.cpp(14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+
+D) Misspell 'main'
+  /out:ASSGN1-A.exe
+  ASSGN1-A.obj
+  LINK : fatal error LNK1561: entry point must be defined
+
+E) Removing () from main()
+  ASSGN1-A.cpp
+  ASSGN1-A.cpp(15): error C2059: syntax error: 'using'
+  ASSGN1-A.cpp(15): error C2143: syntax error: missing ')' before ';'
+  ASSGN1-A.cpp(19): error C2143: syntax error: missing ';' before '<<'
+  ASSGN1-A.cpp(19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  ASSGN1-A.cpp(20): error C2143: syntax error: missing ';' before '<<'
+  ASSGN1-A.cpp(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  ASSGN1-A.cpp(20): error C2086: 'int cout': redefinition
+  ASSGN1-A.cpp(19): note: see declaration of 'cout'
+  ASSGN1-A.cpp(23): error C2059: syntax error: 'return'
+  ASSGN1-A.cpp(24): error C2059: syntax error: '}'
+  ASSGN1-A.cpp(24): error C2143: syntax error: missing ';' before '}'
+
+  | Removing Both
+
+  ASSGN1-A.cpp
+  ASSGN1-A.cpp(15): error C2059: syntax error: 'using'
+  ASSGN1-A.cpp(19): error C2143: syntax error: missing ';' before '<<'
+  ASSGN1-A.cpp(19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  ASSGN1-A.cpp(20): error C2143: syntax error: missing ';' before '<<'
+  ASSGN1-A.cpp(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  ASSGN1-A.cpp(20): error C2086: 'int cout': redefinition
+  ASSGN1-A.cpp(19): note: see declaration of 'cout'
+  ASSGN1-A.cpp(23): error C2059: syntax error: 'return'
+  ASSGN1-A.cpp(24): error C2059: syntax error: '}'
+  ASSGN1-A.cpp(24): error C2143: syntax error: missing ';' before '}'
+
+F) Misspelling 'cout'
+  ASSGN1-A.cpp
+  ASSGN1-A.cpp(19): error C2065: 'cot': undeclared identifier
+Misspelling 'endl'
+  ASSGN1-A.cpp
+  ASSGN1-A.cpp(19): error C2065: 'enl': undeclared identifier
+
+G)

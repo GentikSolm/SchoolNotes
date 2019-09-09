@@ -6,4 +6,15 @@ P(r): *statement*
 Negation
 The Negation of a statement P is the statement:
   Not P, and is denoted by (np)
-  
+
+Disjunction
+The Disjunction of the statements P and Q is the statement P or Q
+  Denoted by P \/ Q
+
+Conjunction
+The Conjunction of the statements P and Q is the statement P and Q
+  Denoted by P /\ Q
+
+Implication
+The implication of statements P and Q is the statement If P then Q.
+  Denoted by P ==> Q

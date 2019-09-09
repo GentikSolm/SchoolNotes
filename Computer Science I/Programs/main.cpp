@@ -6,7 +6,7 @@ Purpose: Demonstration of a simple program */
 using namespace std;
 int main()
 {
-  cout << "Calculated total pay and output"
+  cout << "Calculated total pay and output";
   // variables for payrate and hours
   int payrate = 7;
   int hours = 40;
