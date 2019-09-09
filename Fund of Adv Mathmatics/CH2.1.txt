@@ -1,0 +1,9 @@
+P(r): *statement*
+  This is a open sentence because it depends on one or more variables.
+  ex:
+  P(x): (x-3)^2 <= 1 over the domain Z
+
+Negation
+The Negation of a statement P is the statement:
+  Not P, and is denoted by (np)
+  
