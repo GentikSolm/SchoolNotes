@@ -26,3 +26,14 @@ command to compile cpp!
     Version 1.01 09.09.2019
     Purpose: Learning program Documentation and Standards.
   */
+
+do{
+//stuff
+} while(statement);
+
+int x = 1;
+int y = 10;
+y = ++x; //here y = 2
+y = x++; //here y = 1
+
+const int X = 10; // Always make const cappital letter 

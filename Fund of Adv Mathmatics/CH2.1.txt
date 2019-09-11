@@ -18,3 +18,18 @@ The Conjunction of the statements P and Q is the statement P and Q
 Implication
 The implication of statements P and Q is the statement If P then Q.
   Denoted by P ==> Q
+
+Biconditional
+  Let P and Q be 2 statements, then we have:
+    P ==> Q
+    Q ==> P
+    When (P ==> Q) /\ (Q ==> P), this is called Biconditional.
+    Denoted by P <==> Q
+    Both true or both false yields  True, Else false
+    Said "If and only If"
+
+Contradiction:
+  Always false compound statement
+
+Tautology:
+  Always true compound statement
