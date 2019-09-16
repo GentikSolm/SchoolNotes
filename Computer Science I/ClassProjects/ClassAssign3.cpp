@@ -23,7 +23,6 @@ int main(){
   //This is because == is a comparator, and returns True if they are the same.
   //Therefore, 3 != 4, and it will run the else statement, making z = 6
 
-
   if(x = y){
     z=15;
   }
