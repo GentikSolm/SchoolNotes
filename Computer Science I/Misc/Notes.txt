@@ -20,11 +20,11 @@ command to compile cpp!
 
   /*
     COPYRIGHT (C) 2019 Joshua Brown (jgb38) All rights reserved.
-    CSI assignment 1 A
+    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     Auther. Josh Brown
             jgb38@zips.uakron.edu
-    Version 1.01 09.09.2019
-    Purpose: Learning program Documentation and Standards.
+    Version 1.01 XX.XX.2019
+    Purpose: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   */
 
 do{
@@ -36,4 +36,4 @@ int y = 10;
 y = ++x; //here y = 2
 y = x++; //here y = 1
 
-const int X = 10; // Always make const cappital letter 
+const int X = 10; // Always make const cappital letter
