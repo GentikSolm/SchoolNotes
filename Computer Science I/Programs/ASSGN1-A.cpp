@@ -4,7 +4,7 @@
 state sales tax is 4 percent and the county sales tax is 2 percent.
 
 */
-#include < iostream>
+#include <iostream>
 #include <iomanip>
 
 const float STATE_TAX = .04;
