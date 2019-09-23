@@ -3,7 +3,7 @@
   ASSGN3-B
   Auther. Josh Brown
 		  jgb38@zips.uakron.edu
-  Version 1.01 09.18.2019
+  Version 1.02 09.18.2019
   Purpose: Mad libs!
 */
 #include <iostream>
@@ -13,10 +13,12 @@ using std::cin;
 using std::cout;
 using std::endl;
 int main(){
+	//Variables for mad libs words
 	int number;
 	string name, noun, bodyPart, verb;
 	cout << "Welcome to Madlibs!" << endl;
 	cout << "Please enter the word types into the prompt one by one." << endl;
+	//Inputs for all the variables
 	cout << "Name: ";
 	cin >> name;
 	cout <<"Noun: ";
@@ -27,6 +29,7 @@ int main(){
 	cin >> bodyPart;
 	cout <<"Verb: ";
 	cin >> verb;
+	//actual madlibs output
 	cout << "Thanks! Let me put that togeather. . .\n\n";
 	cout << "The famous explorer " << name << " had nearly given up a life-long quest ";
 	cout << "to find the lost city of " << noun << " when one day the " << noun << " found the explorer.\n\n";
