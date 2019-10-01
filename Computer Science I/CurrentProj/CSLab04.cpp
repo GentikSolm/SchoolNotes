@@ -118,7 +118,8 @@ int main()
           return 0;
      }
      cout << endl << std::fixed << "The area from your choice is: " << area << endl;  // setprecision if you wish to
-     cin.get();
+	 cout << "Press any key to continue\n";
+	 cin.get();
    }
 }
 
@@ -225,13 +226,13 @@ float calculateRectangle()
   {
     cout << "Enter the Rectangle's Legnth: ";
     cin >> legnth;
-    loopFlag = validateFloatInput(legnth, 0, 999999999.99, msg); // we put an upper limit here of 999M
+    loopFlag = validateFloatInput(legnth, 0, 999999999.99, msgL); // we put an upper limit here of 999M
   } while (loopFlag);
   do
   {
 	cout << "Enter the Rectangle's Width: ";
 	cin >> width;
-	loopFlag = validateFloatInput(width, 0, 999999999.99, msg); // we put an upper limit here of 999M
+	loopFlag = validateFloatInput(width, 0, 999999999.99, msgW); // we put an upper limit here of 999M
   } while (loopFlag);
   return (legnth * width);
 }
