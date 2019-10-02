@@ -1,4 +1,5 @@
 #include <iostream>
+#include "basicFuncHeader.h"
 #include "basicFunctions.cpp"
 using namespace std;
 
