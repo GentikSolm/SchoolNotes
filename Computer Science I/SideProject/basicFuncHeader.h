@@ -32,6 +32,10 @@ namespace basic{
 			// this will cout error and return -1.
 		// If the function should be used in a case where it is okay for Max <= 1, pass in noError = true
 			// this will cause the program to not error and return a value that is in absoulute value of the range.
-
+	void print(int aNum);
+	void print(double aDouble);
+	void print(string aString);
+	void print(char aChar);
+		// All of these functions will cout the given variable or string.
 }
 #endif /* BASICFUNCHEADER_H */

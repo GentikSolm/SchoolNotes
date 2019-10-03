@@ -37,3 +37,9 @@ y = ++x; //here y = 2
 y = x++; //here y = 1
 
 const int X = 10; // Always make const cappital letter
+
+
+int sum(int &x, int &y){
+ x++,y++;
+ return x+y;
+}//This changes the actual values of x and why instead of copying them into the function.

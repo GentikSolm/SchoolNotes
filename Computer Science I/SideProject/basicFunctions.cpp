@@ -57,3 +57,19 @@ int randBetween(int max = 10, bool noError = false){
 	else num = rand() % abs(randRange) + min;
 	return num;
 }
+
+// All of these functions will cout the given variable or string.
+//{
+void print(int aNum){
+	cout << aNum;
+}
+void print(double aDouble){
+	cout << aDouble;
+}
+void print(string aString){
+	cout << aString;
+}
+void print(char aChar){
+	cout << aChar;
+}
+//}
