@@ -6,6 +6,11 @@
   Version 1.01 9.29.2019
   Purpose: Some simple functions that are used in general programs
 */
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <limits>
+#include <string>
 
 int userInInt(string termin = "\n-> "){
 	// Requests and int from the user and then verifies it is an int.
