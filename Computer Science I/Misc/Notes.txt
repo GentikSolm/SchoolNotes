@@ -43,3 +43,10 @@ int sum(int &x, int &y){
  x++,y++;
  return x+y;
 }//This changes the actual values of x and why instead of copying them into the function.
+
+
+ifstream // input only
+
+ofstream // output only
+
+fstream // both
