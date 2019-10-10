@@ -50,3 +50,7 @@ ifstream // input only
 ofstream // output only
 
 fstream // both
+
+
+#include <fstream>
+using std::fstream;
