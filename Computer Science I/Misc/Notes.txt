@@ -54,3 +54,8 @@ fstream // both
 
 #include <fstream>
 using std::fstream;
+
+getline(): reads untill \n, unless specified
+	-getline(myFile, name, '\t')
+fin.get(var): reads one char
+fout.put(var): places one char
