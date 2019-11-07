@@ -1,0 +1,17 @@
+		Singular
+		M			F			N
+Nom		qui			quae		quod
+Gen		cuius		cuius		cuius
+Dat		cui 		cui 		cui
+Acc		quem		quam 		quod
+Abl		quo 		qua			quo
+
+---------------------------------------
+---------------------------------------
+		Plural
+		M			F			N
+Nom		qui			quae		quae
+Gen		quorum		quarum		quorum
+Dat		quibus		quibus		quibus
+Acc		quos		quas		quas
+Abl		quibus		quibus		quibus
