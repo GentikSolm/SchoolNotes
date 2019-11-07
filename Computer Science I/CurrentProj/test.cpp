@@ -4,11 +4,11 @@
 #include <ctime>
 #include "Progress.cpp"
 #include <chrono>
+#include <thread>
 using namespace std;
 int main(){
-	progIcon(99, true);
-	for(int i = 0; i < 100; i++){
-		progIcon(99);
-		sleep_for(chrono::milliseconds(50));
+	for(int i = 0; i < 200; i++){
+		progBar(19);
+		std::this_thread::sleep_for(chrono::milliseconds(70));
 	}
 }
