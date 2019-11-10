@@ -34,7 +34,14 @@ int makeArrays(string[], double[][2], ifstream&);
 int sortArray(string[], double[][2], int);
 	// Takes in two parrallel arrays and sorts them togeather
 	// Also takes in int used size of array, NOT TOTAL SIZE
-	// Returns total unique items
+	// Returns total NON UNIQUE items
+
+int squishArray(string[], double[][2], int);
+	// Takes in two parrallel arrays and sees if the first is equal to
+	// the next in a sorted list and then combines the second to the first.
+	// Prereq: MUST BE SORTED
+	// returns unique size
+
 
 void printArray(string[], double[][2], int);
 	// prints arrays as they should be formatted.
@@ -56,10 +63,13 @@ int main(){
 	// Array size is non unique here.
 	//This does not create the arays but merely fills them with unsorted values.
 	arraySize = makeArrays(itemName, itemCountCost, market);
-	// After sort array, arraySize is unique.
-	//Now both arrays are sorted.
+
 	arraySize = sortArray(itemName, itemCountCost, arraySize);
+	//Now both arrays are sorted.
+	arraySize = squishArray(itemName, itemCountCost, arraySize);
+	//Now both are sorted and squished
 	printArray(itemName, itemCountCost, arraySize);
+	//Prints data
 	return 0;
 }
 
@@ -89,63 +99,40 @@ int makeArrays(string items[], double countCost[][2], ifstream &market){
 }
 
 int sortArray(string items[], double countCost[][2], int size){
-	/*
-	NOTE: This loop is fairly complicated, as i created it to not only sort the string array
-	but also clear duplicates, while at the same time managing the doubble array that is
-	parrallel to the string array.
-	*/
+	int small = 0, val;
 
-	// Duplicates counter
-	int dup = 0;
-	bool sorted;
-	// Sort loop
-	do{
-		sorted = true;
-		for(int j = 0; j < size-1; j++){
-			// Because its used twice, stored as var to save process power
-			//Not sure why this threw error when i didnt have it convert to c_str,
-			// but adding the function seems to of fixed the error
-			int compare = strcmp(items[j].c_str(), items[j+1].c_str());
+	//increments non sorted sub array
+	for(int i = 0; i < size; i++){
+		small = i;
+		//Searches for the smallest value
+		for(int j = i+1; j < size; j++){
+			if(strcmp(items[small].c_str(), items[j].c_str()) > 0) small = j;
+		}
+		//swaps the smallest value with the current value in the i slot
+		swap(items[i], items[small]);
+		swap(countCost[i][0], countCost[small][0]);
+		swap(countCost[i][1], countCost[small][1]);
+	}
+	return size;
+}
+int squishArray(string items[], double countCost[][2], int size){
 
-			/*
-			This is the complicated part.
-			The first statement sees if items[j] > items[j+1]
-				AND
-			that item[j+1] is not blank.
-			This is required because if items[j] > items[j+1], and items[j+1]
-			is blank, next loop will trigger the second statement, items[j] == "" and items[j+1] != ""
-
-			The second statemt is needed because when items[j] =="", and items[j+1] != "", compare will be < 0.
-			because we do not want blank space at the start of the array, we need to swap these cases aswell.
-			*/
-			if((compare > 0 && items[j+1] != "") || (items[j] == "" && items[j+1] != "")){
-				// This if statement catches all 'out of order' array indexes.
-				sorted = false;
-				// This swaps values of the strings and their countCost parrallels
+	int newSize = size;
+	for(int i = 0; i < size; i++){
+		//When a string next to another is equal, it will add the second to the first,
+		//then swap the rest of the values to push out the empty string
+		if(strcmp(items[i].c_str(), items[i+1].c_str()) ==0 && items[i] != ""){
+			items[i+1].clear();
+			countCost[i][1] += countCost[i+1][1];
+			countCost[i][1] += countCost[i+1][1];
+			newSize--;
+			for(int j = i+1; j < size; j++){
+				//swapping done here
 				swap(items[j], items[j+1]);
 				swap(countCost[j][0], countCost[j+1][0]);
 				swap(countCost[j][1], countCost[j+1][1]);
-			} else if(compare == 0 && items[j] != ""){
-				// this catches all duplicates and adds the duplicates
-				// according countCost index values to the origionals value.
-				sorted = false;
-				dup++;
-				items[j+1].clear();
-				countCost[j][0] += countCost[j+1][0];
-				countCost[j][1] += countCost[j+1][1];
 			}
-		}
-	}while(!sorted);
-
-	// This finds out how many unique entries there are
-	int newSize = size;
-	// If no duplicates, returns origional size.
-	if(dup > 0){
-		newSize = 0;
-		for(int k = 0; k < size; k++){
-			if(items[k] != ""){
-				newSize++;
-			} else break;
+			i--;
 		}
 	}
 	return newSize;
