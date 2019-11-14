@@ -60,6 +60,7 @@ void checkOuts(char hospitalFloors[FLOOR_ARRAY_SIZE][ROOM_ARRAY_SIZE]);
 Pre and Post condition comments go here ...Perform the transfers and build the dynamic array of pointers.
 this function also will compute the available number of rooms
 */
+//DONE. . . I think
 char** tranfers(char hospitalFloors[FLOOR_ARRAY_SIZE][ROOM_ARRAY_SIZE], int &);
 
 /*
@@ -77,12 +78,15 @@ int newPatientInput(int);
 
 int main()
 {
+	char ** vacArr;
 	char hospitalFloors[FLOOR_ARRAY_SIZE][ROOM_ARRAY_SIZE];
-
+	int totalVacant = 0;
 	readGrid(hospitalFloors);
 	checkOuts(hospitalFloors);
+	vacArr = tranfers(hospitalFloors, totalVacant);
 
 	cout << " Checkouts and transfers completed\n";
+	delete vacArr;
 	printGrid(hospitalFloors);
     // CODE HERE and FUNCTIONS GO AFTER MAIN
     // THIS SHOULD BE PRIMARILY FUNCTION CALLS
@@ -140,39 +144,42 @@ void printGrid(const char hospitalFloors[FLOOR_ARRAY_SIZE][ROOM_ARRAY_SIZE]){
 }
 
 /*
-Pre and Post condition comments go here ...Perform the transfers and build the dynamic array of pointers.
+Pre:	Checkouts have been taken out, and vacant count has been initialized
+Post:	Returns a pointer to an array of pointers of type char that are the addresses of
+			available rooms for transfer.
+Perform the transfers and build the dynamic array of pointers.
 this function also will compute the available number of rooms
 */
-char** tranfers(char hospitalFloors[FLOOR_ARRAY_SIZE][ROOM_ARRAY_SIZE], int &totalTrans){
-	int vacantCount = 0;
+char** tranfers(char hospitalFloors[FLOOR_ARRAY_SIZE][ROOM_ARRAY_SIZE], int &vacantCount){
+	// This function needs work, vacant count should be done in a 3rd for loop that adds
+			// the locations of the transfer rooms to the list of available rooms for new
+			// patients.
+	char** vacArr = new char*[vacantCount];
+	int vacArrCounter = 0;
 	for(int i = 0; i < FLOOR_ARRAY_SIZE; i++){
 		for(int j = 0; j < ROOM_ARRAY_SIZE; j++){
-			if(hospitalFloors[i][j] == 'V'){
+			if(hospitalFloors[i][j] == VACANT){
+				vacArr[vacArrCounter] = &hospitalFloors[i][j];
+				vacArrCounter++;
 				vacantCount++;
 			}
 		}
 	}
-	char** vacArr = new char*[vacantCount];
-	int vacArrCounter = 0;
+
+	//(*vacArr[0]) V
+	// varArr[0] address to last hospitalFloors[i][j]
+	char* temp;
 	for(int i = FLOOR_ARRAY_SIZE-1; i >= 0; i--){
-		for(int j = FLOOR_ARRAY_SIZE-1; j >= 0; j--){
-			if(hospitalFloors[i][j] == 'V'){
-				vacArr[vacArrCounter++] = *(hospitalFloors[i][j]);
+		for(int j = ROOM_ARRAY_SIZE-1; j >= 0 ; j--){
+			if(hospitalFloors[i][j] == TRANSFER){
+				hospitalFloors[i][j] = OCCUPIED;
+				vacArrCounter--;
+				std::swap(*vacArr[vacArrCounter], hospitalFloors[i][j]);
+				//hospitalFloors[i][j] = OCCUPIED;
 			}
 		}
 	}
-	for(int i = FLOOR_ARRAY_SIZE-1; i >= 0; i--){
-		for(int j = FLOOR_ARRAY_SIZE-1; j >= 0; j--){
-			if(hospitalFloors[i][j] == 'T'){
-				hospitalFloors[i][j] = 'V';
-				std::swap(*hospitalFloors[i][j], *vacArr[vacArrCounter--]);
-
-				//NOT DONE HERE
-			}
-		}
-	}
-
-
+	return vacArr;
 }
 
 /*
@@ -183,7 +190,7 @@ Perform the checkouts
 void checkOuts(char hospitalFloors[FLOOR_ARRAY_SIZE][ROOM_ARRAY_SIZE]){
 	for(int i = 0; i < FLOOR_ARRAY_SIZE; i++){
 		for(int j = 0; j < ROOM_ARRAY_SIZE; j++){
-			if(hospitalFloors[i][j] == 'C'){
+			if(hospitalFloors[i][j] == CHECKOUT){
 				hospitalFloors[i][j] = VACANT;
 			}
 		}
