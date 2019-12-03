@@ -113,7 +113,7 @@ int main(){
 		newPatient(userInput, totalVacant, vacArr);
 	}
 	printGrid(hospitalFloors);
-	delete vacArr; //Delete dynamic array
+	delete [] vacArr; //Delete dynamic array
 	//If program ended properly
 	if(totalVacant == 0){
 		cout << "*** No more rooms are available today ***";
