@@ -1,0 +1,20 @@
+	Imperfect Tense
+1st, 2nd, 3rd:
+bam			bamus
+bas			batis
+bat			bant
+
+3rd IO:
+iebam		iebamus
+iebas		iebatis
+iebat		iebanut
+
+	Imperfect Sum:
+Eram		eramus
+Eras		Eratis
+Erat		Erant
+
+	Perfect Tense:
+i			imus
+isti		istis
+it			erunt
