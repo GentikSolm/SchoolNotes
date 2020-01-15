@@ -1,0 +1,19 @@
+	Qui
+		Singular							Plural
+		M			F			N		   	M			F			N
+Nom		qui			quae		quod	|	qui			quae		quae
+Gen		cuius		cuius		cuius	|	quorum		quarum		quorum
+Dat		cui 		cui 		cui		|	quibus		quibus		quibus
+Acc		quem		quam 		quod	|	quos		quas		quas
+Abl		quo 		qua			quo		|	quibus		quibus		quibus
+
+---------------------------------------
+---------------------------------------
+	Illie
+		Singular					Plural
+		M		F		N			M		F		N
+Nom 	ille    illa    illud   |  	illi    illae   illa
+Gen 	illius  illius  illius  |  	illorum illarum illorum
+Dat 	illi    illi    illi    | 	illis   illis   illis
+Acc 	illum   illam   illud   | 	illos   illas   illa
+Abl 	illo    illa    illo    | 	illis   illis   illis

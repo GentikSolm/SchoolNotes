@@ -1,5 +1,5 @@
 	Imperfect Tense
-1st, 2nd, 3rd:
+1st, 2nd, 3rd, 4th:
 bam			bamus
 bas			batis
 bat			bant

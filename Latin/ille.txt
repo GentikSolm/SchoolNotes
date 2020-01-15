@@ -1,7 +1,0 @@
-	Singular					Plural
-M		F		N			M		F		N
-ille    illa    illud   |  	illi    illae   illa
-illius  illius  illius  |  	illorum illarum illorum
-illi    illi    illi    | 	illis   illis   illis
-illum   illam   illud   | 	illos   illas   illa
-illo    illa    illo    | 	illis   illis   illis

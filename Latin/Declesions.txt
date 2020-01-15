@@ -28,6 +28,7 @@ Dat		ei		ebus	|
 Acc		em		es		|
 Abl		e		ebus	|
 
+
 Nomative	-Subject
 Genative	-possession, "from"
 Dative		-"To" or "For"
