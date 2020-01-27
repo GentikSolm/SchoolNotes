@@ -1,16 +1,9 @@
-#include <vector>
+#include <cmath>
 #include <iostream>
 using std::cin;
 using std::cout;
-
-
+using std::endl;
 
 int main(){
-	float x;
-	cin >> x;
-   	if(x < .01){
-		cout << "true";
-   	}
-   	else cout << x;
-   	return 0;
+	
 }
