@@ -8,24 +8,29 @@
 */
 #include <iostream>
 #include <string>
+#include <sstream>
 using std::cout;
+
 class Complex{
 private:
 	double real, imaginary;
 public:
 	Complex(double real, double imaginary);
-	void print();
+	std::string toString();
+
 };
 
 Complex::Complex(double r = 0, double i = 0){
 	real = r;
 	imaginary = i;
 }
-void Complex::print(void){
-	cout << real << " + " << imaginary << 'i';
+std::string Complex::toString(void){
+	std::ostringstream output;
+	output << real << " + " << imaginary << 'i';
+	return output.str();
 }
 
 int main(){
 	Complex num(5,2);
-	num.print();
+	cout << num.toString();
 }
