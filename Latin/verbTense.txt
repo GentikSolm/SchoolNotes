@@ -1,0 +1,29 @@
+Present:
+    Infinitive -re:
+    |   o   |   mus |   I / We
+    |   s   |   tis |   You/ You all
+    |   t   |   nt  |   He/She/It / They
+
+    Use i with -io ending
+    I am
+
+Perfect:
+    Use third form -i
+    |   i   |  imus |   I / We
+    |   isti|  istis|   You/ You all
+    |   it  |  unt  |   He/She/It / They
+    I have
+
+Imperfect:
+    Infinitive -re
+    |   bam   |   bamus |   I / We
+    |   bas   |   batis |   You/ You all
+    |   bat   |   bant  |   He/She/It / They
+    I kept
+
+Pluperfect:
+    Use third form -i
+    |   eram   |   eramus |   I / We
+    |   eras   |   eratis |   You/ You all
+    |   erat   |   erunt  |   He/She/It / They
+    I had 

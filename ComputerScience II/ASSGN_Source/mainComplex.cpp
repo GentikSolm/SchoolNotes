@@ -34,6 +34,16 @@ std::string Complex::toString(void){
 	output << real << " + " << imaginary << 'i';
 	return output.str();
 }
+//For add, subtract, and multiply, instructions uncelar if you wanted
+// these functions to only return the calculated number,
+// or return it, and store it on the number being called upon.
+// To save to parent object, add:
+
+//  real = newNum.real;
+//  imaginary = newNum.imaginary;
+
+// right before the return statement of each of the three calculation functions.
+
 Complex Complex::add(Complex num){
 	Complex newNum(num.real + real, num.imaginary + imaginary);
 	return newNum;

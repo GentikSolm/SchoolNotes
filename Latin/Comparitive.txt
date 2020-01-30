@@ -1,0 +1,20 @@
+Comparative:
+    Cut ending (i.e us, ae, um)
+    M/F         |   N
+    -----------------------
+    ior         |   ius
+    ioris       |   ioris
+    iori        |   iori
+    iorem       |   iori
+    iorem       |   ius
+    iores       |   iora
+    iorum       |   iororum
+    ioribus     |   ioribus
+    iors        |   iora
+    ioribus     |   ioribus
+
+Superlative:
+    Cut ending (i.e us, ae, um)
+    add issimus, a, um
+    Match gender, only use 1st, or 2nd
+        Male / Neuter
