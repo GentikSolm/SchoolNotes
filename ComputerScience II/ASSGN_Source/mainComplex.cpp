@@ -10,12 +10,13 @@
 #include <iostream>
 #include <string>
 #include <sstream> // for ostringstream class
-
+using std::ostream;
 // build your class and member functions here
 class Complex{
 private:
 	double real, imaginary;
 public:
+    Complex();
 	Complex(double r, double i);
 	std::string toString(void);
 	Complex add(Complex);
@@ -24,7 +25,10 @@ public:
 	void setComplexNumber(int r,int i);
 
 };
-
+Complex::Complex(){
+    real = 0;
+    imaginary = 0;
+}
 Complex::Complex(double r = 0, double i = 0){
 	real = r;
 	imaginary = i;
@@ -34,15 +38,6 @@ std::string Complex::toString(void){
 	output << real << " + " << imaginary << 'i';
 	return output.str();
 }
-//For add, subtract, and multiply, instructions uncelar if you wanted
-// these functions to only return the calculated number,
-// or return it, and store it on the number being called upon.
-// To save to parent object, add:
-
-//  real = newNum.real;
-//  imaginary = newNum.imaginary;
-
-// right before the return statement of each of the three calculation functions.
 
 Complex Complex::add(Complex num){
 	Complex newNum(num.real + real, num.imaginary + imaginary);

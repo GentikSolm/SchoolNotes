@@ -1,0 +1,11 @@
+WQS - Water quality standards
+    - Waterway use
+        Designated use  + existing uses
+    - Water quality criteria by pollutant
+        Ex. Chloride: 250 mg/L
+        Numeric, narrative criteria
+        | narrative: no floating scum, etc
+    - Impairment of use(s)
+    - Total maximum daily load (TMDL)
+        WasteLoad allocation - pollution reduction for point sources
+        load allocation - pollution from non point sources
