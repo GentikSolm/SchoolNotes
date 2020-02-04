@@ -42,6 +42,8 @@ public:
     bool operator== (Complex const &);
     bool operator!= (Complex const &);
     Complex& operator=(const Complex &);
+    //Destructor class not required because no dynamic variables
+    // were created.
 
 };
 std::string Complex::toString(void){
@@ -84,7 +86,8 @@ Complex::Complex(const Complex &org){
     real = org.real;
     imag = org.imag;
 }
-Complex& Complex::operator=(const Complex &org){
+Complex& Complex::operator= (Complex const &org){
+    //Safe guarding self assignment
     if(this != &org){
         real = org.real;
         imag = org.imag;
@@ -113,17 +116,28 @@ bool Complex::operator!= (Complex const &num){
     return real != num.real && imag != num.imag;
 }
 ostream& operator<< (ostream& out, const Complex& num){
+    //Didnt use sstream, just used a refernce ostream
     out << num.real << " + " << num.imag << 'i';
     return out;
 }
 istream& operator>> (istream& in, Complex& num){
+    // because of format requirement, need temp char variables to hold
+    // chars: '(', ',', ')'
+    // First line inputs nums into tempReal and tempImag, so that
+    // if fail, the class data is not affected.
+    // Fail is check if input into the different vars fail, or
+    // if temp1, temp2 or temp3 are not the correct characters.
     char temp1, temp2, temp3;
     double tempReal, tempImag;
     if(!(in >> temp1 >> tempReal >> temp2 >> tempImag >> temp3
     && temp1 == '(' && temp2 == ',' && temp3 == ')')){
+        //sets failbit for istream
+        // DOES NOT VALIDATE INPUT
         in.setstate(std::ios::failbit);
         cout << "Fail!\n";
     }
+    //if it passes, then tempReal and tempImag will
+    // be passed and set as the class's variables
     else{
         num.real = tempReal;
         num.imag = tempImag;
