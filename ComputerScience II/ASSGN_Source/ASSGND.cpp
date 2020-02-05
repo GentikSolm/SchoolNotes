@@ -200,7 +200,7 @@ bool Complex::operator!= (Complex const &num){
 }
 ostream& operator<< (ostream& out, const Complex& num){
     //Didnt use sstream, just used a refernce ostream
-    out << num.real << " + " << num.imag << 'i';
+    out << num.real << " + (" << num.imag << "i)";
     return out;
 }
 istream& operator>> (istream& in, Complex& num){
