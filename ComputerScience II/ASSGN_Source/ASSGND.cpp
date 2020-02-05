@@ -28,24 +28,107 @@ public:
 
     //Classis .functions
 	std::string toString(void);
+    //returns the string value of the Complex number
     Complex add(Complex);
+    //returns the sum of called complex num and passed complex num
     Complex subtract(Complex);
+    //returns the difference of called complex num and passed complex num
     Complex multiply(Complex);
+    //Multiples called complex num with passed complex num and returns the value
     void setComplexNumber(int r,int i);
+    //sets called complx num to have passed values.
 
     //Overload operators
     friend ostream& operator<< (ostream&, const Complex&);
+    // converts the complex num to be a cstring output to ostream
     friend istream& operator>> (istream&, Complex&);
+    // converts input in form of (a, b) to initialize a complex num.
+        // DOES NOT DO RECURSIVE VALIDATION. If value is bad, will not modify
+        // value origionally stored in complex num
     Complex operator+ (Complex const &);
+    // returns the sum of two complex nums
     Complex operator- (Complex const &);
+    // returns the difference of two complex nums.
     Complex operator* (Complex const &);
+    // returns the multiplication of two complex nums.
     bool operator== (Complex const &);
+    // returns true if two complex nums are equivilant, else false.
     bool operator!= (Complex const &);
+    // returns false if two complex are equivilant, else true
     Complex& operator=(const Complex &);
+    // sets one complex equal to another complex
+    // does check for self assignment
+
     //Destructor class not required because no dynamic variables
     // were created.
 
 };
+
+int main()
+{
+   for (double i = 1; i < 100; ++ i)
+   {
+     Complex a{i * 2, i + 2};
+     Complex b{i * 3, i + 3};
+
+     Complex c = a.add(b); // invoke add function and assign to object c
+     std::cout << "Test case for Complex: add " << std::endl;
+     std::cout << a.toString() << " + " << b.toString() << " = " << c.toString() << std::endl;
+
+     a.setComplexNumber(i * 2, i + 2); // reset realPart and
+     b.setComplexNumber(i * 3, i + 3); // and imagPart
+
+     std::cout << "Test case for Complex: subtract " << std::endl;
+     c = a.subtract(b); // invoke subtract function and assign to object c
+     std::cout << a.toString() << " - " << b.toString() << " = " << c.toString() << std::endl;
+     std::cout << std::endl;
+
+     a.setComplexNumber(i * 2, i + 2); // reset realPart and
+     b.setComplexNumber(i * 3, i + 3); // and imagPart
+
+     std::cout << "Test case for Complex: multiply " << std::endl;
+     c = a.multiply(b); // invoke multiply function and assign to object c
+     std::cout << a.toString() << " * " << b.toString() << " = " << c.toString() << std::endl;
+     std::cout << std::endl;
+   }
+
+//  THE FOLLOWING CODE FOR TESTING YOUR OVERLOADING ...
+
+   for (double i = 1; i < 10; ++ i)
+   {
+     Complex y{i * 2.7, i + 3.2};
+     Complex z{i * 6, i + 8.3};
+
+     Complex x;
+     Complex k;
+
+     std::cout << "Enter a complex number in the form: (a, b)\n? ";
+     std::cin >> k; // demonstrating overloaded >>
+     std::cout << "x: " << x << "\ny: " << y << "\nz: " << z << "\nk: "
+               << k << '\n'; // demonstrating overloaded <<
+     x = y + z; // demonstrating overloaded + and =
+     std::cout << "\nx = y + z:\n" << x << " = " << y << " + " << z << '\n';
+     x = y - z; // demonstrating overloaded - and =
+     std::cout << "\nx = y - z:\n" << x << " = " << y << " - " << z << '\n';
+     x = y * z; // demonstrating overloaded * and =
+     std::cout << "\nx = y * z:\n" << x << " = " << y << " * " << z << "\n\n";
+
+     if (x != k) { // demonstrating overloaded !=
+        std::cout << x << " != " << k << '\n';
+     }
+
+     std::cout << '\n';
+     x = k;
+
+     if (x == k) { // demonstrating overloaded ==
+        std::cout << x << " == " << k << '\n';
+     }
+       std::cout << std::endl;
+     }
+
+     return 0;
+}
+
 std::string Complex::toString(void){
 	std::ostringstream output;
 	output << real << " + " << imag << 'i';
@@ -143,71 +226,4 @@ istream& operator>> (istream& in, Complex& num){
         num.imag = tempImag;
     }
     return in;
-}
-
-
-int main()
-{
-   for (double i = 1; i < 100; ++ i)
-   {
-     Complex a{i * 2, i + 2};
-     Complex b{i * 3, i + 3};
-
-     Complex c = a.add(b); // invoke add function and assign to object c
-     std::cout << "Test case for Complex: add " << std::endl;
-     std::cout << a.toString() << " + " << b.toString() << " = " << c.toString() << std::endl;
-
-     a.setComplexNumber(i * 2, i + 2); // reset realPart and
-     b.setComplexNumber(i * 3, i + 3); // and imagPart
-
-     std::cout << "Test case for Complex: subtract " << std::endl;
-     c = a.subtract(b); // invoke subtract function and assign to object c
-     std::cout << a.toString() << " - " << b.toString() << " = " << c.toString() << std::endl;
-     std::cout << std::endl;
-
-     a.setComplexNumber(i * 2, i + 2); // reset realPart and
-     b.setComplexNumber(i * 3, i + 3); // and imagPart
-
-     std::cout << "Test case for Complex: multiply " << std::endl;
-     c = a.multiply(b); // invoke multiply function and assign to object c
-     std::cout << a.toString() << " * " << b.toString() << " = " << c.toString() << std::endl;
-     std::cout << std::endl;
-   }
-
-//  THE FOLLOWING CODE FOR TESTING YOUR OVERLOADING ...
-
-   for (double i = 1; i < 10; ++ i)
-   {
-     Complex y{i * 2.7, i + 3.2};
-     Complex z{i * 6, i + 8.3};
-
-     Complex x;
-     Complex k;
-
-     std::cout << "Enter a complex number in the form: (a, b)\n? ";
-     std::cin >> k; // demonstrating overloaded >>
-     std::cout << "x: " << x << "\ny: " << y << "\nz: " << z << "\nk: "
-               << k << '\n'; // demonstrating overloaded <<
-     x = y + z; // demonstrating overloaded + and =
-     std::cout << "\nx = y + z:\n" << x << " = " << y << " + " << z << '\n';
-     x = y - z; // demonstrating overloaded - and =
-     std::cout << "\nx = y - z:\n" << x << " = " << y << " - " << z << '\n';
-     x = y * z; // demonstrating overloaded * and =
-     std::cout << "\nx = y * z:\n" << x << " = " << y << " * " << z << "\n\n";
-
-     if (x != k) { // demonstrating overloaded !=
-        std::cout << x << " != " << k << '\n';
-     }
-
-     std::cout << '\n';
-     x = k;
-
-     if (x == k) { // demonstrating overloaded ==
-        std::cout << x << " == " << k << '\n';
-     }
-       std::cout << std::endl;
-     }
-
-return 0;
-
 }
