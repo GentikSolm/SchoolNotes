@@ -14,7 +14,8 @@ Comparative:
     ioribus     |   ioribus
 
 Superlative:
-    Cut ending (i.e us, ae, um)
-    add issimus, a, um
-    Match gender, only use 1st, or 2nd
+    - Cut ending (i.e us, ae, um)
+    - add issimus, a, um
+    - if ending ends in er, add rimus
+    - Match gender, only use 1st, or 2nd
         Male / Neuter
