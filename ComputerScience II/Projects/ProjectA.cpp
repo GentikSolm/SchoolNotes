@@ -32,13 +32,9 @@ const std::string UNIVERSITYNAMES[NUMLABS] = {"The University of Michigan",
 
 /*
 To do:
-    Make UI
     Make user deletion member function
     Make random ID verification
-    General user input & verification
-    function to print out each lab.
-        use a lab member function for this
-    initialization message
+    login / logoff
 
 
 Done:
