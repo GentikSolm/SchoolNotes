@@ -30,24 +30,6 @@ const std::string UNIVERSITYNAMES[NUMLABS] = {"The University of Michigan",
 "The University of Pittsburgh", "Stanford University", "Arizona State University",
 "North Texas State University", "The University of Alabama, Huntsville",
 "Princeton University", "Duquesne University", "Bruh uni"};
-// Program----------------------------------------------
-
-/*
-To do:
-    Make user deletion member function
-    Make random ID verification
-    login / logoff
-
-
-Done:
-    General framework for date structure:
-        Array of pointers to Labs Objects -> Each lab has Array of pointers to Users
-    Search function for user id
-    member function for initializing new user
-    read functions for id, time, and name
-    Destructors for both classes
-    newId creator
-*/
 
 class User{
 private:
@@ -86,8 +68,6 @@ void showMenu();
 void login(Lab labs[NUMLABS]);
 void logoff(Lab labs[NUMLABS]);
 
-
-// MAIN ------------------------------------------------------------------
 int main(){
     bool flag = true;
     Lab labs[NUMLABS];
