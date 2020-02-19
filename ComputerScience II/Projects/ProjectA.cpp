@@ -218,6 +218,7 @@ void displayLab(Lab labs[NUMLABS]){
     cout << "Computer Stations\n";
     for(int i = 0; i < LABSIZES[labNum]; i++){
         cout << std::setw(2) << std::left << i + 1 << ": ";
+        cout << std::right;
         if(labs[labNum].rId(i) == -1) cout << "empty";
         else {
             cout << setw(5) << std::setfill('0') << labs[labNum].rId(i);
@@ -277,7 +278,7 @@ void login(Lab labs[NUMLABS]){
     }
     cout << endl;
     id = randNum();
-    while(id <= 1 || searchUser(id, labs) != -1) id = randNum();
+    while(id < 1 || searchUser(id, labs) != -1) id = randNum();
     cout << "User id: " << setw(5) << std::setfill('0') << id;
     cout << setw(0) << std::setfill(' ');
     cin.ignore(256, '\n');
