@@ -7,14 +7,15 @@ WQS - Water quality standards
         | narrative: no floating scum, etc
     - Impairment of use(s)
         Exceeding the criteria for receiving streams use
-    - Total maximum daily load (TMDL)
-        WasteLoad allocation - pollution reduction for point sources
-        load allocation - pollution from non point sources
 
-304A1 will be on quiz
-section A & L
-    L - understand what's included
-    water segments
-tech based standards
+Total maximum daily load (TMDL)
+    WasteLoad allocation - pollution reduction for point sources
+    - Load allocation
+        pollution from non point sources
+    - WLA
+        Point sources
 
-ohio intergrated service report, on sylabus
+Summit Lake
+    Industrial Source
+    Legacy - Discharget Sediment
+    Stormwater and erosion

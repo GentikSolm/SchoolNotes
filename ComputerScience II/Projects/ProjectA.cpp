@@ -14,20 +14,22 @@
 #include <cstdlib>
 #include <ctime>
 #include <iomanip>
+#include <cctype>
 using std::cout;
 using std::cin;
 using std::endl;
 using std::setw;
+using std::string;
 
 // Global Constants
 // Number of computer labs
-const int NUMLABS = 8;
+const int NUMLABS = 9;
 // Number of computers in each lab
-const int LABSIZES[NUMLABS] = {19, 15, 24, 33, 61, 17, 55, 37};
+const int LABSIZES[NUMLABS] = {19, 15, 24, 33, 61, 17, 55, 37, 1};
 const std::string UNIVERSITYNAMES[NUMLABS] = {"The University of Michigan",
 "The University of Pittsburgh", "Stanford University", "Arizona State University",
 "North Texas State University", "The University of Alabama, Huntsville",
-"Princeton University", "Duquesne University"};
+"Princeton University", "Duquesne University", "Bruh uni"};
 // Program----------------------------------------------
 
 /*
@@ -73,14 +75,16 @@ public:
     ~Lab();
 };
 
-double searchUser(const int id_, Lab Labs[NUMLABS]);
+double searchUser(const int id_, Lab labs[NUMLABS]);
 int randNum();
-bool mainMenu(Lab Labs[NUMLABS]);
-void search(Lab Labs[NUMLABS]);
+bool mainMenu(Lab labs[NUMLABS]);
+void search(Lab labs[NUMLABS]);
 int intVeri(int min, int max);
 void displayLab(Lab labs[NUMLABS]);
 void startup();
 void showMenu();
+void login(Lab labs[NUMLABS]);
+void logoff(Lab labs[NUMLABS]);
 
 
 // MAIN ------------------------------------------------------------------
@@ -90,12 +94,12 @@ int main(){
     for(int i = 0; i < NUMLABS; i++){
         labs[i].initLab(LABSIZES[i]);
     }
-    labs[0].initUser(18, 12345, 15, "Hose");
     startup();
     while(flag){
         showMenu();
         flag = mainMenu(labs);
     }
+    return 0;
 }
 
 /*
@@ -153,7 +157,7 @@ Other Functions
 int randNum(){
     int num;
 	srand(time(0));
-    num = (rand() % 10) + (rand() % 10) * 10 + (rand() % 10) * 100 + (rand() % 10) * 1000 + (rand() % 10) * 10000;
+    num = rand() % 99999;
     return num;
 }
 double searchUser(const int id_, Lab labs[NUMLABS]){
@@ -174,10 +178,10 @@ bool mainMenu(Lab labs[NUMLABS]){
     choice = intVeri(1, 5);
     switch (choice) {
         case 1:
-            // login(labs);
+            login(labs);
             break;
         case 2:
-            // logoff(labs);
+            logoff(labs);
             break;
         case 3:
             search(labs);
@@ -202,7 +206,7 @@ int intVeri(int min = -1, int max =-1){
         }
         cout << ":\n";
         cin.clear();
-        cin.ignore();
+        cin.ignore(256, '\n');
         cin >> input;
     }
     return input;
@@ -211,16 +215,18 @@ void search(Lab labs[NUMLABS]){
     int searchNum, labNum, stationNum;
     double foundNum;
     cout << "Enter the 5 digit ID number of the user to find:\n";
-    searchNum = intVeri(9999, 100000);
+    searchNum = intVeri(1,99999);
     foundNum = searchUser(searchNum, labs);
     labNum = foundNum;
     stationNum = (foundNum - labNum) * 100;
-    cout << "User " << searchNum;
+    cout << "User " << setw(5) << std::setfill('0') << searchNum;
+    cout << setw(0) << std::setfill(' ');
     if(foundNum == -1){
-        cout << " was not found in any lab.\n";
+        cout << " is not logged on.\n";
     }
     else{
         cout << " is in lab " << labNum +1 << " at computer " << stationNum +1 << endl;
+        cout << "Name: " << labs[labNum].rName(stationNum) << '\t' << "Time using station: " << labs[labNum].rTime(stationNum) << endl;
     }
 }
 void displayLab(Lab labs[NUMLABS]){
@@ -233,14 +239,17 @@ void displayLab(Lab labs[NUMLABS]){
     for(int i = 0; i < LABSIZES[labNum]; i++){
         cout << std::setw(2) << std::left << i + 1 << ": ";
         if(labs[labNum].rId(i) == -1) cout << "empty";
-        else cout << labs[labNum].rId(i);
+        else {
+            cout << setw(5) << std::setfill('0') << labs[labNum].rId(i);
+            cout << setw(0) << std::setfill(' ');
+        }
         if((i+1) % 5 == 0) cout << endl;
         else cout << "  " << setw(0) << std::right;
     }
-    cout << endl;
+    cout << endl << std::right;
 }
 void startup(){
-    cout << "\tWelcome - here is our list of available labs\n";
+    cout << "\n\tWelcome - here is our list of available labs\n";
     for(int i = 0; i < NUMLABS; i++){
         cout << "lab # " << i + 1 << " for " << UNIVERSITYNAMES[i] << endl;
     }
@@ -259,4 +268,86 @@ void showMenu(){
     cout << '|' << setw(30) << std::setfill(' ') << "5) Quit" << setw(30) << '|' << endl;
     cout << '|' << setw(60) << std::setfill('_') << '|' << endl << endl;
     cout << std::setfill(' ');
+}
+void login(Lab labs[NUMLABS]){
+    int labChoice, statChoice, id, time;
+    string name;
+    bool flag = true;
+    cout << "Enter the lab number the user is loggin in from (1 - " << NUMLABS << "): ";
+    labChoice = intVeri(1,NUMLABS);
+    for(int i = 0; i < LABSIZES[labChoice-1]; i++){
+        if(labs[labChoice-1].rId(i) != -1){
+            flag = false;
+        }
+        else{
+            flag = true;
+            break;
+        }
+    }
+    if(!flag){
+        cout << "Lab " << labChoice << ", " << UNIVERSITYNAMES[labChoice-1] << ", is at full capacity.\n"
+            << "Please try your request again later...\n";
+        return;
+    }
+    cout << "Enter the computer station number the user is logging in to (1 - " << LABSIZES[labChoice-1] << "): ";
+    statChoice = intVeri(1, LABSIZES[labChoice-1]);
+    if(labs[labChoice-1].rId(statChoice-1) != -1){
+        cout << "Sorry, that work station is already taken!\n";
+        return;
+    }
+    cout << endl;
+    id = randNum();
+    while(id <= 1 || searchUser(id, labs) != -1) id = randNum();
+    cout << "User id: " << setw(5) << std::setfill('0') << id;
+    cout << setw(0) << std::setfill(' ');
+    cin.ignore(256, '\n');
+    flag = true;
+    int countLetters = 0;
+    do{
+        cout << endl << "Please enter the name of the user:\n";
+        getline(cin, name);
+        if(name.length() > 35 || name.empty()){
+            cout << "Name must be at least 1 character and at most 35";
+            flag = false;
+        }
+        for(int i = 0; i < name.length(); i++){
+            if(isalpha(name[i])) countLetters++;
+            if(i == name.length()-1 && countLetters ==0){
+                cout << "Name cannot be blank.";
+                flag = false;
+                break;
+            }
+            if(!(isalpha(name[i]) || name[i] == ' ')){
+                cout << "Invalid name! Must contain only letters and spaces.";
+                flag = false;
+                break;
+            }
+            flag = true;
+        }
+    }while(!flag);
+    cout << "Please enter the minutes of use for the workstation (15/30/45/60):\n";
+    time = intVeri(15,60);
+    while(time != 15 && time != 30 && time != 45 && time != 60){
+        cout << "Invalid time, Enter (15/30/45/60):\n";
+        time = intVeri(15,60);
+    }
+    labs[labChoice-1].initUser(statChoice-1, id, time, name);
+    cout << "User succesfully logged in.\n";
+}
+void logoff(Lab labs[NUMLABS]){
+    int id, labNum, stationNum;
+    double location;
+    cout << "Please enter User id to be logged off:\n";
+    id = intVeri(1,99999);
+    location = searchUser(id, labs);
+    if(location == -1){
+        cout << "User not currently logged in!\n";
+        return;
+    }
+    labNum = location;
+    stationNum = (location - labNum) * 100;
+    labs[labNum].initUser(stationNum, -1, 0, "");
+    cout << "User " << setw(5) << std::setfill('0') << id;
+    cout << setw(0) << std::setfill(' ');
+    cout << " was succesfully logged off.\n";
 }
