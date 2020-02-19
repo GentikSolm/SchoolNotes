@@ -378,11 +378,12 @@ void login(Lab labs[NUMLABS]){
     do{
         cout << endl << "Please enter the name of the user:\n";
         getline(cin, name);
-        if(name.length() > 35 || name.empty()){
-            cout << "Name must be at least 1 character and at most 35";
-            flag = false;
-        }
-        for(int i = 0; i < name.length(); i++){
+        for(int i = 0; i < name.length() || name.empty(); i++){
+            if(name.length() > 35 || name.empty()){
+                cout << "Name must be at least 1 character and at most 35\n";
+                flag = false;
+                break;
+            }
             if(isalpha(name[i])) countLetters++;
             if(i == name.length()-1 && countLetters ==0){
                 cout << "Name cannot be blank.";
