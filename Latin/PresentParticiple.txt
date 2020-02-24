@@ -1,0 +1,20 @@
+Example: Amo, amare
+    N   |   amans   |   amantia
+    G   |   amantis |   amantium
+    D   |   amanti  |   amantibus
+    Acc |   amans   |   amantia
+    Abl |   amante  |   amantibus
+
+If infinitive not ending in e:
+    N   |   ns   |   ntia
+    G   |   ntis |   ntium
+    D   |   nti  |   ntibus
+    Acc |   ns   |   ntia
+    Abl |   nte  |   ntibus
+
+If e:
+    N   |   iens   |   ientia
+    G   |   ientis |   ientium
+    D   |   ienti  |   ientibus
+    Acc |   iens   |   ientia
+    Abl |   iente  |   ientibus
