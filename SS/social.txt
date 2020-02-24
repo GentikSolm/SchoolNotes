@@ -19,3 +19,19 @@ Summit Lake
     Industrial Source
     Legacy - Discharget Sediment
     Stormwater and erosion
+
+PCB's:
+    pollutant.
+    Polychlorinated biphenyls
+
+Use Impairments
+    Fish Consumption        <- PCB, mercury
+    Recreation              <- Nutrients
+    Aquatic Life            <- Nutrients, Chloride, TDS
+    PWS - partial (Public water supply) <- PCB, Chloride, TDS
+
+    other pollutants:
+        Zinc, Arsenic, Cadmium, Chromium, lead, mercury, Ammonia-N, iron, manganise
+
+Nutrients: Fertilizer, wildlife, CSOs/POTWs -> LA, WLA
+Chloride: Cargill discharge
