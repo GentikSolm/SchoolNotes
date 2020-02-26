@@ -12,7 +12,7 @@ Perfect:
     |   i   |  imus |   I / We
     |   isti|  istis|   You/ You all
     |   it  |  unt  |   He/She/It / They
-    I have
+    I have / were
 
 Imperfect:
     Infinitive -re
@@ -26,4 +26,29 @@ Pluperfect:
     |   eram   |   eramus |   I / We
     |   eras   |   eratis |   You/ You all
     |   erat   |   erunt  |   He/She/It / They
-    I had 
+    I had
+
+Future:
+    1st & 2nd conjugation: -are / -ere, long e
+        bo  |   bimus
+        bis |   bitis
+        bit |   bunt
+
+    3rd: ere, short e
+        am  |   emus
+        es  |   etis
+        et  |   ent
+
+    3rd io: 3rd but has io on first person
+        iam |   iemus
+        ies |   ietis
+        iet |   ient
+    4th: -ire
+        am  |   emus
+        es  |   etis
+        et  |   ent
+
+    Sum es est:
+        ero     |   erimus
+        eris    |   eritis
+        erit    |   erunt
