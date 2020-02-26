@@ -17,14 +17,16 @@ int main()
    list.appendNode('f');
    list.appendNode('c');
    list.appendNode('a');
-   // list.insertNode('y');
-   // list.insertNode('0');
-   // list.insertNode('9');
-   // list.insertNode('o');
-   // list.insertNode('p');
-   // list.insertNode('@');
-   // list.insertNode('Q');
-   // list.deleteNode('t');
+
+   list.insertNode('y');
+   list.insertNode('0');
+   list.insertNode('9');
+   list.insertNode('o');
+   list.insertNode('p');
+   list.insertNode('@');
+   list.insertNode('Q');
+   list.deleteNode('Q');
+   list.deleteNode('0');
    list.displayList();
    return 0;
 }

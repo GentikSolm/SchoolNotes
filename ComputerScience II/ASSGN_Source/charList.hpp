@@ -12,8 +12,8 @@ public:
     CharList(){head = nullptr;}
     void displayList() const;
     void appendNode(char);
-    // insertNode(char);
-    // deleteNode(char);
+    void insertNode(char);
+    void deleteNode(char);
     ~CharList();
 };
 
