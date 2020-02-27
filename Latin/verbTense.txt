@@ -29,12 +29,13 @@ Pluperfect:
     I had
 
 Future:
-    1st & 2nd conjugation: -are / -ere, long e
+    Use present stem
+    1st & 2nd conjugation: -are / -ēre, long e
         bo  |   bimus
         bis |   bitis
         bit |   bunt
 
-    3rd: ere, short e
+    3rd: o in stem and -ere, short e
         am  |   emus
         es  |   etis
         et  |   ent
@@ -52,3 +53,10 @@ Future:
         ero     |   erimus
         eris    |   eritis
         erit    |   erunt
+
+Future perfect: 3rd part:
+    Ero   |  Erimus
+    Eris  |  Eritis
+    Erit  |  Erint
+
+    Will have
