@@ -1,0 +1,10 @@
+.test {
+    background-color: black;
+    color: white;
+    margin: 40px;
+    padding: 20px;
+    font-family:verdana;
+}
+body {
+    background-color: white;
+}
