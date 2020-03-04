@@ -1,58 +1,26 @@
-Plico, plicare:
-    Plicabo     plicabimus
-    Plicabis    plicabitis
-    plicabit    plicabunt
+Emo, Emere, emi
 
-Emo, Emere:
     Emam    Ememus
     Emes    Emetis
     Emet    Ement
 
-Scio, Scire:
-    Sciam   Sciemus
-    Scies   Scietis
-    Sciet   Scient
+    Emero   Emerimus
+    Emeris  Emeritis
+    Emerit  Emerint
 
-Cupio, Cupere:
-    Cupiam  Cupiemus
-    Cupies  Cupietis
-    Cupiet  Cupient
+Porto, Portare, Portaui
+
+    Portabo     Portabimus
+    Portabis    Portabitis
+    Portabit    Portabunt
+
+    Portauero   Portauerimus
+    Portaueris  Portauertis
+    Portauerit  Portauerint
 
 
-Sent 5:
-    1 a)
-        Plural accusative
-        Novum periculum
-    b)
-        Future, exponemus
-    c)
-        exposui
-    d)
-        exposueram
-    e)
-        New danger to the people of
-            rome i will explain without delay
-    2 a)
-        Future, ducent
-    b)
-        duxerat
-    c)
-        ducet
--------------------------------
-1)
-    Rogabis
-    Cenabis
-    cenam
-    favent
-    dabo
-    Cenabis
+Carus, i, um
+positive    comparative         superlative
+            carior/carius       carissimus, a, um
 
-2)
-    attuleris
-    attuleris
-3)
-    suavius, suavissimus
-    elegantiusve, elegantissimus
-4)
-    Perfume, unguentum
-5)
+care        carius              carissime

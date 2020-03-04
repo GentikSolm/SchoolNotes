@@ -29,7 +29,7 @@ Pluperfect:
     I had
 
 Future:
-    Use present stem
+    Use present stem, chop entire -ere
     1st & 2nd conjugation: -are / -ēre, long e
         bo  |   bimus
         bis |   bitis

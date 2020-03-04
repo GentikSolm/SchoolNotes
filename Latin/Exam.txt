@@ -2,7 +2,7 @@ Know:
     Sum, esse, fui, futurus - be
     possum, posse, potui - be able
     eo, ire, ii/iui, itus - go
-    fero, ferre, tuli, latus
+    fero, ferre, tuli, latus - carry
 
 Verbs:
     Perfect, Imperfect, Pluperfect, future, present, perfect present
