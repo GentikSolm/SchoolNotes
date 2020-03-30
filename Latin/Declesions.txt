@@ -1,21 +1,21 @@
 	1st F					2nd M				2nd N
 		S		Pl			S		Pl			S		Pl
-Nom		a		ae		|	us		i		|	um		a
+Nom		a		ae	    |	us		i		|	um		a
 Gen		ae		arum	|	i		orum	|	i		orum
 Dat		ae		is		|	o		is		|	o		is
-Acc		am		as		|	um		os		|	um		a
-Abl		a		is		|	o		is		|	o		is
+Acc		am		as		|	um		os	    |	um		a
+Abl		a	  	is  	|	o		is		|	o		is
 
 -------------------------------------------------------------
 -------------------------------------------------------------
 
 	3rd M/F 				3rd N				4th M/F				4th N
 		S		Pl			S		Pl			S		Pl			S		Pl
-Nom		-		es		|	-		a		|	us		us		|	u		ua
-Gen		is		um		|	is		um		|	us		uum		|	us		um
+Nom		-		es		|	-		a	  	|	us		us		|	u		ua
+Gen		is     	um  	|	is	    um		|	us		uum		|	us	    um
 Dat		i		ibus	|	i		ibus	|	ui		ibus	|	u		ibus
-Acc		em		es		|	-		a		|	um		us		|	u		ua
-Abl		e		ibus	|	e		ibus	|	u		ibus	|	u		ibus
+Acc		em     	es	    |	-		a		|	um		us		|	u		ua
+Abl		e		ibus	|	e		ibus	|	u	  	ibus	|	u		ibus
 
 -------------------------------------------------------------
 -------------------------------------------------------------
@@ -26,7 +26,7 @@ Nom		es		es		|
 Gen		ei		erum	|
 Dat		ei		ebus	|
 Acc		em		es		|
-Abl		e		ebus	|
+Abl		e		  ebus	|
 
 
 Nomative	-Subject

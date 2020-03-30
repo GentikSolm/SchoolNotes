@@ -48,12 +48,12 @@ Future:
         am  |   emus
         es  |   etis
         et  |   ent
-
+-----------------------------
     Sum es est:
         ero     |   erimus
         eris    |   eritis
         erit    |   erunt
-
+-----------------------------
 Future perfect: 3rd part:
     Ero   |  Erimus
     Eris  |  Eritis
