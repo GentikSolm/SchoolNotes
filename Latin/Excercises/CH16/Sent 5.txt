@@ -1,16 +1,15 @@
 1:
     a) Nomative Plural
         Argumentum
-    b) Nomative passive
-        visa est
+    b) perfect 3rd plural
+        viderunt
     c) videunt sunt
-    d) from that arguemtn they both seemed severe and sure.
+    d) those arguments seemed both severe and sure.
 
 2:
     a) present passive
-        ereptae est
+        ereptus est
     b) ereptit
     c) die
-    d) ferro
-    e) The republic plans for my daughter to go that day from fire,
-        but being rescued with sword
+    d) consiliis meis
+    e) The republic has been rescued on that day from fire and sword by means of my plans.

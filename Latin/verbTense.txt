@@ -25,7 +25,7 @@ Pluperfect:
     Use third form -i
     |   eram   |   eramus |   I / We
     |   eras   |   eratis |   You/ You all
-    |   erat   |   erunt  |   He/She/It / They
+    |   erat   |   erant  |   He/She/It / They
     I had
 
 Future:
