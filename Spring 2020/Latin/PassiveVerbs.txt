@@ -1,0 +1,8 @@
+Endings:
+    r   | mur
+    ris | mini
+    tur | ntur
+
+amor “I am loved” amamur “we are loved”
+amaris “you are loved” amamini “you are loved”
+amatur “he/she/it is loved” amantur “they are loved”
