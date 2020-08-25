@@ -18,3 +18,5 @@ If e:
     D   |   ienti  |   ientibus
     Acc |   iens   |   ientia
     Abl |   iente  |   ientibus
+
+-ing ending

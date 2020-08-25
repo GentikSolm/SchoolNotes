@@ -1,0 +1,25 @@
+Sum, esse, fui, futurus:
+    Future:
+        Used for Future perfect:
+            ero     |   erimus
+            eris    |   eritis
+            erit    |   erunt
+
+    Imperfect:
+        Used for Pluperfect:
+            eram    |   eramus
+            eras    |   eratis
+            erat    |   erant
+
+    Present
+        Perfect passive:
+            Sum    |   sumuss
+            es     |   estis
+            est    |   sunt
+Passive
+    r   |   mur
+    ris |   mini
+    tur |   ntur
+i am -d
+amo, amare:
+    amor: i am loved

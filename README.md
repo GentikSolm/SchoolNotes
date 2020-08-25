@@ -5,3 +5,8 @@ Each folder represents a class, and inside each folder will be files pertaining 
 To start server, run:
     'http-server ./public'
     inside 'Web' folder
+
+
+1 1 1 | -1 2 8
+0 1 3 | 2 -2 -10
+0 0 0 | 3 1 -3

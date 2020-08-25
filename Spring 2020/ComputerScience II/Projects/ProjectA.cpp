@@ -1,6 +1,6 @@
 /*
   COPYRIGHT (C) 2019 Joshua Brown (jgb38) All rights reserved.
-  ASSGNA
+  ProjectA
   Auther. Josh Brown
 		  jgb38@zips.uakron.edu
   Version 1.01 2.6.2020

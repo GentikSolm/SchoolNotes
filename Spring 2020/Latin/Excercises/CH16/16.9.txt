@@ -1,0 +1,22 @@
+scripsit        | He has written
+scribit         | He/She/It Writes
+scripturus      | About to write
+scriptus        | Written
+scribet         | He will write
+ama             | Love!
+amatae sumus    | We have been loved
+amabis          | you will love
+amaturae        | About to love
+amaverunt       | they loved
+ducimus         | we lead
+ducti sumus     | We have been lead
+duc             | Lead!
+ductus          | Having been lead
+ducturam        | About to lead
+ducti erant     | they had been lead
+ducti erunt     | they will have been lead
+
+
+Scribo, scribere, scripsi, scriptus – write
+Amo, amare, amavi, amatus – love
+Duco, ducere, duxi, ductus - lead
