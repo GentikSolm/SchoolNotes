@@ -1,0 +1,8 @@
+Class Reflection week 1.
+This week in class, 5 important things I have learned are as follows; First the class syllabus. Most likely the most important
+piece of information pertaining to the class. How the class is structured and graded is extremely important. Second is the idea
+and implication of moore's law. I never fully knew what moore's law was, and now understanding it, one can easily see why it is useful
+to program in anticipation for future system specifications. Third is how much faster parallelism makes a computer system.
+Being able to increase speed by even over 100x is really crazy. Fourth is the idea of pipelining, which anyone should be able
+to quickly see why that's so useful. Lastly, is how much cell phones have surpassed PC in sales every year. I did not think that
+it was as much of a jump as it was on the graph.
