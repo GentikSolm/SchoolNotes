@@ -1,0 +1,15 @@
+Class Reflection week 2.
+This week in class, 5 important things I have learned are as follows;
+First, how Integrated circuits are made. Understanding this can help lead to innovations in how one would
+    decrease cost or increase production. For instance knowing the relationship between defects and area could lead to
+    a mathematical model that would maximize cost to yield ratio.
+Second, seeing how some metrics in a computer system must be sacrificed for others, as shown in the plan analogy. For instance,
+    a super fast processer might not be able to run at a easy to maintain temperature, just as the cruising speed of a BAC is high, it sacrifices
+    its range and passenger capacity.
+Third, CPU clocking. Knowing how the CPU does calculations but only updates at the end of every clock cycle enables a better general understanding
+    of how to read specifications of computer systems.
+Fourth, how to read and determine execution time. Now when creating programs or judging others programs, I can have a more informed understanding
+    of what the numbers actually mean.
+fifth, response time versus throughput. this is critical information especially for when designing computer systems. Knowing that you cannot
+    increase response time by adding more CPU's, but only by getting a faster CPU, or that the fastest way to increase throughput is by
+    adding more CPU/CPU cores is extremely important for any Computer science or Computer engineer student.
