@@ -13,9 +13,7 @@ using std::string;
 //TODO:
 /*
     Linked list implementation
-    Times
-    Records given length away
-    Clean up input from file after linked list is implimented
+    Timesl
     add quick notes
 */
 
@@ -37,13 +35,13 @@ private:
     city cityDb[DBSIZE];
     int size=0;
 public:
-    void addCity(const float  xcord, const float ycord, string cName);
+    void addCity(const float  xcord, const float ycord, const string cName, const bool init);
         // Add city into db, true for success and false for city already present
     void deleteCityName(const string cName);
         //Delete city from db by name
     void deleteCityCoord(const float xcord, const float ycord);
         //Delete city from db by name
-    void printNearby(const float xcord, const float ycord);
+    void printNearby(const string cName, const float distance);
         //print nearby locations
     int searchDbName(const string cName);
         //search db by name
@@ -61,7 +59,7 @@ public:
 //         // Add city into db, true for success and false for city already present
 //
 // };
-
+float dec_to_rad(float degree);
 void printMenu();
 float getx();
 float gety();
@@ -86,7 +84,7 @@ int main()
     database.open("Database.txt");
     while(!database.eof()){
         database >> name >> x >> y;
-        ArrayDb.addCity(x, y, name);
+        ArrayDb.addCity(x, y, name,1);
     }
     database.close();
     do{
@@ -107,7 +105,7 @@ int main()
                     name = getName();
                     x = getx();
                     y = gety();
-                    ArrayDb.addCity(x, y, name);
+                    ArrayDb.addCity(x, y, name,0);
 
                 break;
                 case 2://search name
@@ -131,7 +129,10 @@ int main()
                     ArrayDb.deleteCityCoord(x,y);
                 break;
                 case 6://list all in area
-                    //ToDo
+                    name = getName();
+                    cout << "Enter Distance: ";
+                    y = userInfloat();
+                    ArrayDb.printNearby(name, y);
                 break;
                 case 7://print entire db
                     ArrayDb.printDbFull();
@@ -171,9 +172,9 @@ int main()
 }
 
 
-void CityArray::addCity(const float  xcord, const float ycord, string cName){
+void CityArray::addCity(const float  xcord, const float ycord, const string cName, const bool init){
     // Add city into db, true for success and false for city already present
-    if(CityArray::searchDbName(cName) != -1){
+    if(CityArray::searchDbName(cName) != -1 && !init){
         cout << "No need to insert again, as this record exists in the existing data set.\n\n";
         return;
     }
@@ -181,7 +182,7 @@ void CityArray::addCity(const float  xcord, const float ycord, string cName){
     cityDb[size].xcord = xcord;
     cityDb[size].ycord = ycord;
     size++;
-    cout << "Record inserted successfully.\n\n";
+    if(!init) cout << "Record inserted successfully.\n\n";
     return;
 }
 void CityArray::deleteCityName(const string cName){
@@ -216,8 +217,27 @@ void CityArray::deleteCityCoord(const float xcord, const float ycord){
     size--;
     cout << "Deleted successfully" << endl;
 }
-// void CityArray::printNearby(const float xcord, const float ycord);
+void CityArray::printNearby(const string cName, const float distance){
     //print nearby locations
+    int arrLoc = searchDbName(cName);
+    if(arrLoc ==-1){
+        cout << "No such record exists in the existing data set.\n";
+        return;
+    }
+    float x,y,x1,y1, distanceBetween;
+    x = dec_to_rad(cityDb[arrLoc].xcord);
+    y = dec_to_rad(cityDb[arrLoc].ycord);
+    cout << "Output:\n";
+    for(int i = 0; i < size; i++){
+        x1 = dec_to_rad(cityDb[i].xcord);
+        y1 = dec_to_rad(cityDb[i].ycord);
+        distanceBetween = 3963 * acos(sin(x)*sin(x1)+cos(x)*cos(x1)*cos(y1-y));
+        if(distanceBetween <= distance){
+            cout << cityDb[i].city << ", (" << cityDb[i].xcord << ", " << cityDb[i].ycord << ')' << endl;
+        }
+    }
+
+}
 int CityArray::searchDbName(const string cName){
     //search db by name
     for(int i = 0; i < size; i++){
@@ -243,6 +263,10 @@ void CityArray::printDbFull(){
     }
 }
 
+float dec_to_rad(float degree){
+    float M_PI = 3.1415926535;
+    return degree * (M_PI/180.0);
+}
 float userInfloat(){
 	float temp;
 	cin >> temp;
