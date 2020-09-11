@@ -13,7 +13,7 @@ using std::string;
 //TODO:
 /*
     Linked list implementation
-    Timesl
+    Times
     add quick notes
 */
 
@@ -29,7 +29,32 @@ struct city{
     float xcord;
     float ycord;
 };
+struct cityLinked{
+    string city;
+    float xcord;
+    float ycord;
+    cityLinked* next = nullptr;
+};
+class CityLinkedList{
+private:
+    cityLinked* head = nullptr;
+public:
+    void addCity(const float  xcord, const float ycord, const string cName, const bool init);
+        // Add city into db, true for success and false for city already present
+    void deleteCityName(const string cName);
+        //Delete city from db by name
+    void deleteCityCoord(const float xcord, const float ycord);
+        //Delete city from db by name
+    void printNearby(const string cName, const float distance);
+        //print nearby locations
+    void printDb(const const cityLinked* location);
+    void printDbFull();
 
+    cityLinked* searchDbName(const string cName);
+        //search db by name
+    cityLinked* searchDbCoord(const float xcord, float ycord);
+        //search db by location
+};
 class CityArray{
 private:
     city cityDb[DBSIZE];
@@ -51,14 +76,6 @@ public:
     void printDbFull();
 };
 
-// class cityLinked{
-// private:
-//
-// public:
-//     bool addCity(const float  xcord, const float ycord);
-//         // Add city into db, true for success and false for city already present
-//
-// };
 float dec_to_rad(float degree);
 void printMenu();
 float getx();
@@ -171,10 +188,10 @@ int main()
 
 }
 
-
+//Array functions
 void CityArray::addCity(const float  xcord, const float ycord, const string cName, const bool init){
     // Add city into db, true for success and false for city already present
-    if(CityArray::searchDbName(cName) != -1 && !init){
+    if(CityArray::searchDbName(cName) != nullptr && !init){
         cout << "No need to insert again, as this record exists in the existing data set.\n\n";
         return;
     }
@@ -238,6 +255,16 @@ void CityArray::printNearby(const string cName, const float distance){
     }
 
 }
+void CityArray::printDb(const int location){
+    cout << "Output:\n";
+    cout << cityDb[location].city << ", (" << cityDb[location].xcord << ", " << cityDb[location].ycord << ')' << endl;
+}
+void CityArray::printDbFull(){
+    cout << "Output:\n";
+    for(int i = 0; i < size; i++){
+        cout << cityDb[i].city << ", (" << cityDb[i].xcord << ", " << cityDb[i].ycord << ')'<< endl;
+    }
+}
 int CityArray::searchDbName(const string cName){
     //search db by name
     for(int i = 0; i < size; i++){
@@ -252,17 +279,67 @@ int CityArray::searchDbCoord(const float xcord, float ycord){
     }
     return -1;
 }
-void CityArray::printDb(const int location){
-    cout << "Output:\n";
-    cout << cityDb[location].city << ", (" << cityDb[location].xcord << ", " << cityDb[location].ycord << ')' << endl;
-}
-void CityArray::printDbFull(){
-    cout << "Output:\n";
-    for(int i = 0; i < size; i++){
-        cout << cityDb[i].city << ", (" << cityDb[i].xcord << ", " << cityDb[i].ycord << ')'<< endl;
+
+//Linked list functions
+void addCity(const float  xcord, const float ycord, const string cName, const bool init){
+    if(CityLinkedList::searchDbName(cName) == -1){
+        cityLinked* temp;
+        temp = head;
+        head = new cityLinked;
+        head->next = temp;
+        head->city = cName;
+        head->xcord = xcord;
+        head->ycord = ycord;
+        if(!init){
+            cout << "Record inserted successfully.\n\n";
+        }
+    } else if(!init){
+        cout << "No need to insert again, as this record exists in the existing data set.\n\n";
     }
 }
+void deleteCityName(const string cName){
 
+}
+void deleteCityCoord(const float xcord, const float ycord){
+
+}
+void printNearby(const string cName, const float distance){
+    
+}
+cityLinked* searchDbName(const string cName){
+    cityLinked* temp = head;
+    while(temp!=nullptr){
+        if(temp->city == cName){
+            return temp;
+        }
+        temp = temp->next;
+    }
+    return nullptr;
+}
+cityLinked* searchDbCoord(const float xcord, float ycord){
+    cityLinked* temp = head;
+    while(temp!=nullptr){
+        if(temp->xcord == xcord && temp->ycord == ycord){
+            return temp;
+        }
+        temp = temp->next;
+    }
+    return nullptr;
+}
+void printDb(const cityLinked* location){
+    cout << "Output:\n";
+    cout << location->name << ", (" << location->xcord << ", " << location->ycord << ')' << endl;
+}
+void printDbFull(){
+    cityLinked* temp = head;
+    cout << "Output:\n";
+    while(temp!=nullptr){
+        cout << temp->name << ", (" << temp->xcord << ", " << temp->ycord << ')' << endl;
+        temp = temp->next;
+    }
+
+}
+//General Functions
 float dec_to_rad(float degree){
     float M_PI = 3.1415926535;
     return degree * (M_PI/180.0);
