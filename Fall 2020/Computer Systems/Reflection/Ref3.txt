@@ -1,0 +1,18 @@
+Class Reflection week 3.
+This week in class, 5 important things I have learned are as follows;
+First, what needs to be done to improve CPU power performance. Since voltage and heat are reducible,
+    we must focus on increasing capacitive load and decrease frequency. Question, will it ever
+    be possible for a technological breakthrough to decrease voltage further?
+Second, how the SPEC CPU2006 calculates CPU performance. By giving the average time execution ration, the
+    SPEC gives benchmarks for CPU's. Knowing what these benchmarks actually mean instead of just seeing it as a number
+    is very important for knowing how one CPU compares to another. (same idea with learning how they find power benchmarks)
+Third, the idea of Amdahls law shows us how to improve a system, we need to improve something that affects the majority
+    of the computer. If we improve something that has little to do with the system, the system will not be improved by much
+    even if the improvement is very large.
+Fourth, reading MIPS's as a sales pitch and not a valid judgement factor. Just because a computer has a large MIPS does
+    not mean it will perform faster than computers with less MIPS. Is there a way to educate more people on what MIPS actually
+    are so that less people get coned by salesmen boasting large MIPS? (out of class topic)
+Lastly, the basics of MIPS architecture. By learning the basics of one processer language, we can easily learn the other
+    by equating the way other processer code looks to the MIPS one. Similar to common programming languages, once you understand
+    one language, it is fairly easy to learn others, because you are only learning the syntax, and not having to learn the actual
+    ideas and meanings behind the code. Where can we try out programming in MIPS to play with how it works?
