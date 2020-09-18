@@ -11,15 +11,6 @@ using std::cout;
 using std::endl;
 using std::string;
 
-//TODO:
-/*
-    Times
-    add quick notes
-*/
-
-
-
-
 //GLOBALS
 const int DBSIZE = 1000; //CHANGE FOR LARGER DB FOR ARRAY
 
@@ -102,6 +93,9 @@ int main()
     int location;
     cityLinked* linkedLocation;
     string name;
+    std::chrono::time_point<std::chrono::system_clock> start, end;
+    std::chrono::duration<float> elapsed_seconds;
+    std::time_t end_time;
     std::ifstream database;
     database.open("Database.txt");
     while(!database.eof()){
@@ -127,37 +121,51 @@ int main()
                     name = getName();
                     x = getx();
                     y = gety();
+                    start = std::chrono::system_clock::now();
                     ArrayDb.addCity(x, y, name,0);
+                    end = std::chrono::system_clock::now();
 
                 break;
                 case 2://search name
                     name = getName();
+                    start = std::chrono::system_clock::now();
                     location = ArrayDb.searchDbName(name);
                     ArrayDb.printDb(location);
+                    end = std::chrono::system_clock::now();
                 break;
                 case 3://search coord
                     x = getx();
                     y = gety();
+                    start = std::chrono::system_clock::now();
                     location = ArrayDb.searchDbCoord(x,y);
                     ArrayDb.printDb(location);
+                    end = std::chrono::system_clock::now();
                 break;
                 case 4://delete name
                     name = getName();
+                    start = std::chrono::system_clock::now();
                     ArrayDb.deleteCityName(name);
+                    end = std::chrono::system_clock::now();
                 break;
                 case 5://delete coord
                     x = getx();
                     y = gety();
+                    start = std::chrono::system_clock::now();
                     ArrayDb.deleteCityCoord(x,y);
+                    end = std::chrono::system_clock::now();
                 break;
                 case 6://list all in area
                     name = getName();
                     cout << "Enter Distance: ";
                     y = userInfloat();
+                    start = std::chrono::system_clock::now();
                     ArrayDb.printNearby(name, y);
+                    end = std::chrono::system_clock::now();
                 break;
                 case 7://print entire db
+                    start = std::chrono::system_clock::now();
                     ArrayDb.printDbFull();
+                    end = std::chrono::system_clock::now();
                 break;
             }
         }
@@ -167,52 +175,61 @@ int main()
                     name = getName();
                     x = getx();
                     y = gety();
+                    start = std::chrono::system_clock::now();
                     LinkedDb.addCity(x, y, name,0);
+                    end = std::chrono::system_clock::now();
 
                 break;
                 case 2://search name
                     name = getName();
+                    start = std::chrono::system_clock::now();
                     linkedLocation = LinkedDb.searchDbName(name);
                     LinkedDb.printDb(linkedLocation);
+                    end = std::chrono::system_clock::now();
                 break;
                 case 3://search coord
                     x = getx();
                     y = gety();
+                    start = std::chrono::system_clock::now();
                     linkedLocation = LinkedDb.searchDbCoord(x,y);
                     LinkedDb.printDb(linkedLocation);
+                    end = std::chrono::system_clock::now();
                 break;
                 case 4://delete name
                     name = getName();
+                    start = std::chrono::system_clock::now();
                     LinkedDb.deleteCityName(name);
+                    end = std::chrono::system_clock::now();
                 break;
                 case 5://delete coord
                     x = getx();
                     y = gety();
+                    start = std::chrono::system_clock::now();
                     LinkedDb.deleteCityCoord(x,y);
+                    end = std::chrono::system_clock::now();
                 break;
                 case 6://list all in area
                     name = getName();
                     cout << "Enter Distance: ";
                     y = userInfloat();
+                    start = std::chrono::system_clock::now();
                     LinkedDb.printNearby(name, y);
+                    end = std::chrono::system_clock::now();
                 break;
                 case 7://print entire db
+                    start = std::chrono::system_clock::now();
                     LinkedDb.printDbFull();
+                    end = std::chrono::system_clock::now();
                 break;
             }
         }
+    if(choice !=8){
+        elapsed_seconds = end-start;
+        end_time = std::chrono::system_clock::to_time_t(end);
+        std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+    }
     }while(choice != 8);
-
-
-
-    // std::chrono::time_point<std::chrono::system_clock> start, end;
-    // start = std::chrono::system_clock::now();
-    // end = std::chrono::system_clock::now();
-    // std::chrono::duration<float> elapsed_seconds = end‐start;
-    // std::time_t end_time = std::chrono::system_clock::to_time_t(end);
-    // std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
-
-
+    return 0;
 }
 
 //Array functions

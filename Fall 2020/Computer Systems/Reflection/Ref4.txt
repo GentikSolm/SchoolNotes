@@ -1,0 +1,19 @@
+Class Reflection week 3.
+This week in class, 5 important things I have learned are as follows;
+First, Detailed operations of MIPS, such as addi, or how to use addi to subtract. These are obviously
+    useful, as they are the building blocks of understanding and writing machine code.
+Second, Using the zero register is useful to know that there are ticks to making writing more efficiently.
+    knowing how to use these low level language tricks is useful to understand how the high level languages could
+    be written to maximize efficiently.
+Third, Understanding how to count and read binary is probably the most important, as it is the language
+    of computer systems. Knowing how to count in a new base (base 2, vs base 10) also makes it easier to
+    understand future counting systems with different bases. Are there any other counting bases that are
+    commonly used in computer?
+Fourth, the 2s complement signed integers. understanding how to read signed bits is equally as important as
+    understanding binary, as its also used commonly in computer systems. Being able to understand how in a signed, the range
+    is from -2m to +2m, vs non signed of +4m (for 32bit), lets one understand which to use in what scenario.
+Fifth, finally, knowing the difference between registers and memory is important for making sure ones code
+    or computer system is utilizing its variables in the most efficient way. If you program is storing all of its
+    variables in memory instead of registers, it will be very slow. being able to balance often-used variables vs
+    non common variables and knowing how to move them in and out of memory / register using machine code lets us
+    also write more complex programs in machine code. 
