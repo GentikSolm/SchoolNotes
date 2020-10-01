@@ -1,0 +1,25 @@
+Class Reflection week 6.
+This week in class, 5 important things I have learned are as follows;
+First:
+    How to program recursive functions in Machine code. This is important for understanding what is happening on the back end when you code
+    in a high level language. This gives a deeper understanding and lets one understanding where their code might be breaking if it fails.
+    Things like how jal calls the function and jr returns the value, and how we need to store all of the values in registers that will be used,
+    and then how we must call them back once we end the program.
+Second:
+    How exe's are run / managed. Understanding how data is not a free for all, and how dynamic data starts at the bottom, right above
+    $gp, and grows upwards vs how the stack grows down, shows that you must manage those so that you don't cause one to run into the other.
+    Static data gets its own section and so does text. Static is static variables, and text is the rest of the instructions while reserved
+    is unknown data instructions. This whole area of the processor is called the process footprint
+Third:
+    Handling characters. This is very important because even for every day programming you must know how to understand ascii codes. I never
+    knew that the code could be used for other languages. Understanding the different formats and how each number represents a letter / character
+    lets you know how to transverse letters using math operations. This also gives the idea of strings, and how each string is just a "string" of
+    characters.
+Fourth:
+    Conditional operators, this is essential for understanding how to program in machine code. In order to make any useful program one
+    must know how to program logic. Using beq (branch if equal) or bne (branch not equal), or j (jump), you can make easy comparisons
+    and create simple logic in your code base.
+Fifth:
+    How a processor recognizes blocks of code that lack branches, so that they can "speed" through them. Understanding this can help one
+    wright more efficient code by piling anything that can be put into a "block" all in the same few lines. This way the computer can speed
+    as fast as it can through as many different instructions as possible. 

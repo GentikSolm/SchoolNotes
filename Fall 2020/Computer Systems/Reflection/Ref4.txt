@@ -1,4 +1,4 @@
-Class Reflection week 3.
+Class Reflection week 4.
 This week in class, 5 important things I have learned are as follows;
 First, Detailed operations of MIPS, such as addi, or how to use addi to subtract. These are obviously
     useful, as they are the building blocks of understanding and writing machine code.
@@ -16,4 +16,4 @@ Fifth, finally, knowing the difference between registers and memory is important
     or computer system is utilizing its variables in the most efficient way. If you program is storing all of its
     variables in memory instead of registers, it will be very slow. being able to balance often-used variables vs
     non common variables and knowing how to move them in and out of memory / register using machine code lets us
-    also write more complex programs in machine code. 
+    also write more complex programs in machine code.
