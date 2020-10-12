@@ -1,0 +1,22 @@
+Class Reflection week 7.
+This week in class, 5 important things I have learned are as follows;
+First:
+    Operation formats, and how more modes can give better flexibility. Understanding what it means for a given processor to have a certain amount
+    of Operation Modes gives one and understanding of how complex that processor can be programed from pre made instructions. For instance, MIPS only has
+    a few Operation modes, such as I-format, J-format, R-format etc. Processors such as intel
+Second:
+    How addition works inside the processor. Its interesting how the processor handles addition and subtraction using negative addition.
+    Knowing how the processor (MIPS) detects an overflow by weather there is overflow or not (number is out of range) and how it will shoot it
+    to an EPC and then error, gives one valuable information on why a system is erroring and what could be happening.
+Third:
+    Multiplication. This is really interesting how the system shifts the multiplicand and then adds over and over and over until the Multiplication is complete.
+    Similarly how the operands must be in 32 bit but the register is in 64 bit (MIPS is two 32 bits, one for high one for low) because two 32 bit multiplied by each other could easily exceed 32 bit.
+    How does the multiplication loop understand when to stop and return the value? Is it just when it stops getting values from the shifter?
+Fourth:
+    Division; Works Similarly to multiplication, by doing repeated subtraction. division done in 32 bit, results in two registers.
+    Cannot be pipelined like multiplication however because of the nature of the mathematics.
+Fifth:
+    Floating point integers. Understanding the difference between a double and a float is awesome because both are widely used in programming, many times
+    without the programmer actually knowing what the difference is. Floating point is 32bit precision, and double is 64 bit precision.
+    floating point is sign (1bit), Exponent(8Bit), Fraction(23Bit). Double is sign(1bit) exponent(11bit) and fraction(52) bit.
+    Both always use normalized numbers. Since double is 64 bit, can 32bit systems not use doubles?
