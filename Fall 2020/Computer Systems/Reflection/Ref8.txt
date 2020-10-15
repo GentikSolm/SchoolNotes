@@ -1,0 +1,26 @@
+Class Reflection week 8.
+This week in class, 5 important things I have learned are as follows;
+First:
+    The multiplexor, basically a switch to tell the computer what input to use for output. For instance, a MUX is used to decide if the PC+4 address should be used or a new instruction location.
+    It knows when to switch based on the control path, which is flagged if an instruction like a beq or jump is in place, and the computer expects to jump to a new location. These Mux's are used
+    anywhere that multiple lines need to be combined, because you cannot just connect multiple wires. A mux also happens when going from registers to the ALU, so that a register or an immediate
+    value can be used. This way in an i format instruction, the immediate value does not have to be stored into a register first; it can go straight to the ALU since the MUX will know to pass it
+    because the control path will see that the instruction is an i format.
+Second:
+    Simple gates. Gates such as AND, or OR etc are simple gates that control some logic in the computer. An and gate will send out a true bit if and only if both of its inputs are true. Similarly.
+    an OR gate will fire if either one or the other inputs are firing. These are essential in building logic inside computers. With just and / or gates, one can make fairly complex logic.
+Third:
+    Control path. The control path is a system in the hardware that gives the computer the ability to know how to execute instructions. It does things such as control the multiplexors,
+    memory writes, register writes, ALU operations and more. The control path is vital, without it the computer would not know what line to use when, or even what instruction to do.
+    The control path is like a manager in a factory, telling all the workers what to do.
+Fourth
+    Edge triggered clocking. This is when all state changes occur at a clock edge. Essentially every time the clock cycle ticks up OR down, an change happens. In a given example, an element
+    is present at the up tick, and on the down tick it is applied to a logic gate, then it is output to a new state element on the next up cycle. This is important to understand because
+    it gives more insight on when the computer is updating and changing. Knowing that the computer changes every edge instead of only once every cycle is extremely valuable.
+Fifth:
+    How to build a data path. This information is extremely valuable because it potentially lets a person be able to look at a diagram and understand what is happening in a computer system.
+    Similarly, one could even build a diagram of a computer system once they know the basics of how one works. This is as follows: The PC counter goes to the address of an instruction inside
+    instruction memory, and at the same times adds 4 to its program counter. then it takes that instruction and goes to the conttrol path and registers, which denote what type of instruction
+    is being used. The instruction is put into the ALU to do its logic. The alu gets its values form the registers, or right from the instruction depending on if the control path setting. (iformat vs r format)
+    Then the output is returned to the registers so that it is stored, or it is givin into data memoroy, also controlled by the control path. Finally the cycle is complete and the
+    control path gives the signal to fire again and let another instruction take place.
