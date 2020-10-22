@@ -1,0 +1,32 @@
+Class Reflection week 9.
+This week in class, 5 important things I have learned are as follows;
+First:
+    Creating a control path. I learned how to create a control path, how it should grab the op code from the register, and how it has to control all the different
+    parts of the computer. You have to make sure the control path reaches every part of the processor. this is important to know becuase without knowing how to build / make
+    a control path, you cannot make or properly understand the processor.
+Second:
+    how the control works. I learned how the control path really works and how when an instruction comes in, it takes the op code and then
+    sends out signals into the data path so that all the data flows and goes into the right places. The control path can do things like tell the
+    ALU what function to do, It can tell a MUX what line to use, it can tell memory what to read / write etc. This is useful because it is vital in
+    understanding how the processor works. Without the control path the computer wouldn't work because it would not know what to do at any given instruction.
+Third:
+    Pipelining; This is one of the most important things we have learned in class. This is how computer systems are efficient and run faster. Pipelining
+    is when you do instructions while you are waiting on another. For instance, with the laundry example, you put your cloths in the wash, but then when
+    they are ready to be put into the dryer, you take another load and put it into the washer while you move your first load to the dryer. Now both are running at the
+    same time, increasing productivity. This can be translated to the computer very easily. When translated over, it lets us make very fast programs, and is important to
+    understand because it is used in all processor's today.
+Fourth:
+    How Pipelining works in the processor. Inside the computer, similar to the laundry example, each instruction has 3 parts: Fetch, decode, and execute.
+    when the computer is done with its first fetch and starts to decode, it fetches the next instruction. This is how processors "speedup" their processes.
+    This is very valuable to understand because it shows how the computer doesn't really have to do extra work to keep all the different things from mixing or overlapping,
+    each pipeline part is in a different part of the processor. it is important to identify all the stages of an instruction to use pipelining. pipelining however does not
+    increase execution time for one process. It only increases time for multiple tasks.
+    This is because the speed is coming from doing multiple parts of a instruction at the same time.
+Fifth:
+    How read a pipelined instruction. Single cycle execution is when each cycle executes one single function. Pipelined is much faster, because the clock can be set much faster.
+    This is because each event is broken down to smaller tasks. Instead of an 800ps event, we get 200ps events, meaning our clock cycle can be 200ps. When we overlap our events,
+    we have to eat the time between two events when one is smaller than the set clock speed. For example, a register fetch is only 100ps, if this is lined up with a instruction fetch
+    that takes 200ps, then the register fetch will just idle until it is ready to execute so that they will end on the same clock cycle. Its super interesting to see how
+    pipelining works when each event is broken down into its components and times. This shows how much faster we can execute multiple instructions without actually increasing
+    execution time of a single instruction. This is important because it helps cement the understanding of pipelining and gives the knowledge to understand what is happening Inside
+    the processor when it is pipelining.
