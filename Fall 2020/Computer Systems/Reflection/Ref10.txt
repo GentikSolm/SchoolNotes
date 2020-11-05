@@ -1,0 +1,27 @@
+Class Reflection week 10.
+This week in class, 5 important things I have learned are as follows;
+First:
+    Dealing with Branch hazards by branch prediction (Dynamic Prediction). We learned how the processor uses 4 states to predict where the branch should go.
+    The processor can either predict taken, or not taken. the 4 states are predict taken, predict taken (2), predict not taken (2) and predict not taken.
+    As long as the prediction is right, the state will stay either taken or not taken. If it is wrong TWO times, then it will flip to the other prediction.
+    This gives the processor a chance to predict correctly if the code was a one off wrong prediction. This is important to understand because it shows how
+    a processor might predict what is going to happen so that it can pull the correct instruction for the pipeline.
+Second:
+    Pipeline registers. These include IF, ID, EX, MEM, and WB. IF->instruction fetch, ID -> instruction Decode, MEM -> Memory, WB -> Write back.
+    these sit in-between each part of the control path and can hold values that enable pipeline execution. The control unit controls these data values,
+    and passes them around. This is important because it gives us the ability to forward data, as well as give us more reliable pipelined processor.
+Third:
+    Exceptions. They are managed by a separate processor, where if an exception happens, the address of the instruction goes into the CPO,
+    and it will determine other exceptions near / caused by it. Returns the address of instructions that are problems. Then it jumps to the handler
+    at 8000 00180. the CPO can also report or not report to the computer the error. This is important to know because everything has to do with exceptions.
+    Knowing how the computer deals with them is highly important.
+Fourth:
+    Forwarding. This enables the CPU to give out data values to the next pipelined instruction without the need to wait for the instruction to completely
+    finish. This way, when instructions use the same register in very close proximity, the processor does not have to blow bubbles, instead it will Forward
+    the data to where it needs to go. This forwarding is controlled by the forwarding unit. This is important to understand because it gives us much more
+    efficient systems because we do not have to blow bubbles every time and instruction is close to another of the same type.
+Fifth:
+    stalls and performance. Stalls can be used when a hazard is detected. The processor will force control values to 0 in the ID/EX register, ex, mem, and wb do no-operations
+    prevent the update of PC and IF/ID register. Initial instruction is re-decoded, and the folling instruction is fetched again. 1 cycle stall allows
+    MEM to read for lw. Stalls reduce performance of course, but it is required for correct results, because without a stall the wrong register data could
+    be used / read. To prevent stalls, the compiler can arrange code to avoid such hazzards but it has to expect a pipelined structure.
