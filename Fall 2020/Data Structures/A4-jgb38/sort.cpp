@@ -4,6 +4,14 @@
 #include <vector>
 using std::swap;
 using std::vector;
+using std::cout;
+
+void printArrayv(int *array, int size){
+    for(int i = 0; i < size; i++){
+        cout << array[i] << ' ';
+    }
+    cout << std::endl;
+}
 void bubbleSort(int *arr, int size){
     bool flag = 0;
     while(!flag){
@@ -84,4 +92,51 @@ void mergeSort(int *arr, int left, int right){
             k++;
         }
     }
+}
+void quickSortF(int *arr, int start, int end){
+    if(start < end){
+        int part = partFirst(arr, start, end);
+        quickSortF(arr, start, part-1);
+        quickSortF(arr, part+1, end);
+    }
+}
+int partFirst(int *arr, int start, int end){
+    int pivot = arr[start];
+    int iter = start;
+    int temp;
+    for(int i = start; i <= end; i++){
+        if(arr[i] < pivot){
+            iter++;
+            temp = arr[i];
+            arr[i] = arr[iter];
+            arr[iter] = temp;
+        }
+    }
+    temp = arr[start];
+    arr[start] = arr[iter];
+    arr[iter] = temp;
+    return iter;
+}
+void quickSortM(int *arr, int start, int end) {
+    int i = start, j = end;
+    int tmp;
+    int pivot = arr[(start + end) / 2];
+    /* partition */
+    while (i <= j) {
+        while (arr[i] < pivot)
+            i++;
+        while (arr[j] > pivot)
+            j--;
+        if (i <= j) {
+            tmp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = tmp;
+            i++;
+            j--;
+        }
+    }
+    if (start < j)
+        quickSortM(arr, start, j);
+    if (i < end)
+        quickSortM(arr, i, end);
 }

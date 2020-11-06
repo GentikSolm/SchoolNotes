@@ -22,7 +22,7 @@ int main(){
 
     printArray(sortArray, size);
     cout << "\nArray sorted:\n";
-    mergeSort(sortArray, 0, size-1);
+    quickSortM(sortArray, 0, size-1);
     printArray(sortArray, size);
 
     delete mainArray;
