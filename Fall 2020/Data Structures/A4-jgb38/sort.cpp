@@ -36,17 +36,18 @@ void insertSort(int *arr, int size){
     }
 }
 void selSort(int *arr, int size){
-    if(size == 0) return;
-    int small = arr[0];
-    int loc = 0;
-    for(int i = 0; i < size; i++){
-        if(small > arr[i]){
-            small = arr[i];
-            loc = i;
+
+    for(int j = 0; j < size; j++){
+        int small = arr[j];
+        int loc = j;
+        for(int i = j; i < size; i++){
+            if(small > arr[i]){
+                small = arr[i];
+                loc = i;
+            }
         }
+        swap(arr[loc], arr[j]);
     }
-    swap(arr[loc], arr[0]);
-    selSort(arr +1, size-1);
 }
 
 void mergeSort(int *arr, int left, int right){
