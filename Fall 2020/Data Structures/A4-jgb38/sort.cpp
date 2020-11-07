@@ -6,12 +6,6 @@ using std::swap;
 using std::vector;
 using std::cout;
 
-void printArrayv(int *array, int size){
-    for(int i = 0; i < size; i++){
-        cout << array[i] << ' ';
-    }
-    cout << std::endl;
-}
 void bubbleSort(int *arr, int size){
     bool flag = 0;
     while(!flag){

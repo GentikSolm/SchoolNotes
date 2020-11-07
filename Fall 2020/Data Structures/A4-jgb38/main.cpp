@@ -14,9 +14,18 @@ using std::endl;
 using std::rand;
 
 int userInInt();
+    //Retuns a validated int greater than 0.
 int initArray(int **main, int **sort);
+    //Initializes two arrays, main and sort. Both will be exactly the same
+    //The array is initalized to the useres desired size inside the function
+    //the contents of the array are random within the bounds of 0 - size-1.
+    //returns the size of the arrays.
+    //main and sort must be nullpointers.
 void resetArray(int *base, int *reset, int size);
+    //Resets the reset array to be equal to base array.
 void printArray(int *array, int size);
+    //Helper function used to validate that the arrays are sorting, not used in
+    //program.
 
 int main(){
     int* mainArray;
@@ -28,23 +37,25 @@ int main(){
     std::chrono::duration<double> MergeTime;
     std::chrono::duration<double> QuickFTime;
     std::chrono::duration<double> QuickMTime;
+        //These are for comparing 1st, 2nd, 3rd place
     cout << std::fixed;
 
     int size = initArray(&mainArray, &sortArray);
 
     cout << "For O(N^2) Sorting:\n";
+        //Each of these blocks finds teh time of execution,
+        //sorts the array
+        //and resets the array back to base.
     start = std::chrono::system_clock::now();
     bubbleSort(sortArray, size);
     end = std::chrono::system_clock::now();
     BubbleTime = end-start;
-
     resetArray(mainArray, sortArray, size);
 
     start = std::chrono::system_clock::now();
     insertSort(sortArray, size);
     end = std::chrono::system_clock::now();
     InsertTime = end-start;
-
     resetArray(mainArray, sortArray, size);
 
     start = std::chrono::system_clock::now();
@@ -53,6 +64,7 @@ int main(){
     SelTime = end-start;
     resetArray(mainArray, sortArray, size);
 
+        //If statements for time placements, determins winnders.
     if(BubbleTime <= InsertTime && BubbleTime <= SelTime){
         if(SelTime <= InsertTime){
             cout << "1st: Bubble sort @ " << BubbleTime.count() << 's' << endl;
@@ -92,6 +104,7 @@ int main(){
 
 
     cout << "nlogn Sort:\n";
+        //same as last blocks, just for nlogn sorts
     start = std::chrono::system_clock::now();
     mergeSort(sortArray, 0, size-1);
     end = std::chrono::system_clock::now();
@@ -111,6 +124,7 @@ int main(){
     end = std::chrono::system_clock::now();
     QuickMTime = end-start;
 
+    //same as last if statement block
     resetArray(mainArray, sortArray, size);
     if(MergeTime <= QuickFTime && MergeTime <= QuickMTime){
         if(QuickMTime <= QuickFTime){
@@ -149,11 +163,11 @@ int main(){
         }
     }
 
+    //deletes main and sort array
     delete mainArray;
     delete sortArray;
     return 1;
 }
-
 
 int initArray(int **main, int **sort){
     srand(time(NULL));
@@ -173,8 +187,8 @@ int initArray(int **main, int **sort){
 int userInInt(){
 	int temp;
 	cin >> temp;
-	while(cin.fail()){
-		cout << "That was not a number! Please enter a number\n> ";
+	while(cin.fail() || temp <= 0){
+		cout << "That was not a valid number! Please enter a number\n> ";
 		cin.clear();
 		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		cin >> temp;
