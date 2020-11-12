@@ -1,0 +1,36 @@
+Class Reflection week 11.
+This week in class, 5 important things I have learned are as follows;
+First:
+    Dual issue processors; these are processor designs in which there are two instructions sent at the same time to two different ALUs
+    but use the same registers and storage. This lets us speed up through put by double, because we are doing 2x the instructions still in
+    a pipelined fashion. This design has its issues however. If two instructions are sent that reference the same variable, and it changes in
+    the first instruction, you would have to wait until that variable is finished changing before you can go through with the next one.
+    The best way to avoid this is by very harsh code scheduling. This is where the processor arranges the way the code is executed so that
+    such errors are avoided. If they are unavoidable, then the processor can blow 'bubbles' so that it still runs correctly because
+    correctly > speed.
+    This approach however has many issues, and is not as good as multiple simpler cores, as compared on a graph from the slides.
+Second:
+    How different processors perform different for different benchmarks. Knowing how just because one benchmark is better for one processor than
+    another does not mean it is universally better than another. This helps an engineer decide what type of processor to use for a desired
+    machine. By running specific benchmarks that are close to what the actual code he/she will be working on would give a much better benchmark
+    because different benchmarks can give different results. These differences can be caused by memory hierarchy stalls, or pipeline stalls
+    and the likes.
+Third:
+    Memory organization in DRAM. DRAM bits are organized in rectangular arrays known as 'words'. When accessing something in dram,
+    you get returned the entire row. We also looked at how memory organization has changed over the years. Originally we used one word wide memory blocks,
+    then we moved to wider blocks, and eventually to memory banks, which let us grad data from multiple banks in a pipeline-like manner.
+    while waiting on one databank to return, you can access from another because they are separate.
+Fourth:
+    Memory hierarchy; smaller size is faster, but costs more. This list goes from fastest to slowest: [SRAM, DRAM, HDD].
+    By using locality, and caches, we can make this hierarchy seem much faster. Instead of accessing what we need from the HDD, we can bring back
+    a block of words from the HDD and bring it to the DRAM so that we don't have to go all the way down to the hard drive to retrieve data that is close
+    to the HDD. For example, if someone has to drive an hour to get money from the bank, they would grab chucks of money at a time so that they didn't
+    have to do a trip every time for the exact amount of money. they can fill their 'cache' or wallet, with money to hold on to till they have to
+    refill their wallet again.
+Fifth:
+    Principle of Locality: Programs use a small portion of the address space at any given time; items accessed are likly to be accessed again in a
+    sort amount of time; Items near accessed items are likely to be accessed soon; Everything gets stored on disk, where transfer to DRAM and SRAM
+    as needed. when transferring from each, the processor not only gets the item it asked for, but a block around that item.
+    this is done in levels, each cache level is closer and closer to the processor.
+    Question: When looking at specs of processors, is the L1, L2, L3, etc cache sizes the size of each level of cache in the processor? for example
+    my processor has L1 = 384KB, L2 = 3MB, L3 = 32MB.
