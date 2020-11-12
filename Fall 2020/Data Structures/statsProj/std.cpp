@@ -12,8 +12,7 @@ using std::swap;
 using std::ifstream;
 using std::ofstream;
 int userInInt();
-template <class typeName>
-void mergeSort(typeName arr, int left, int right);
+vector<double> selSort(vector<double> arr, int size);
 
 int main(){
     int n, choice2;
@@ -36,7 +35,7 @@ int main(){
     }
     data.close();
     n = sample.size();
-    mergeSort(sample, 0, n-1);
+    sample = selSort(sample, n);
     range = std::abs(sample[0] - sample[n-1]);
     mean = total/n;
     if(n%2 == 0){
@@ -70,51 +69,22 @@ int main(){
     cout << "Min:    " << min << endl;
     cout << "Coefficient of Variation: " << cOfv << endl;
 }
-template <class typeName>
-void mergeSort(typeName arr, int left, int right){
-    if(left < right){
-        int mid = (left + (right-1))/2;
+vector<double> selSort(vector<double> arr, int size){
 
-        mergeSort(arr, left, mid);
-        mergeSort(arr, mid+1, right);
-
-        int size1, size2;
-        size1 = mid - left +1;
-        size2 = right - mid;
-
-        vector<double> leftA (size1);
-        vector<double> rightA (size2);
-        for(int i = 0; i < size1; i++){
-            leftA[i] = arr[left+i];
-        }
-        for(int j = 0; j< size2; j++){
-            rightA[j] = arr[mid + 1 + j];
-        }
-        int i = 0, j = 0, k = left;
-
-        while(i < size1 && j < size2){
-            if(leftA[i] <= rightA[j]){
-                arr[k] = leftA[i];
-                i++;
+    for(int j = 0; j < size; j++){
+        int small = arr[j];
+        int loc = j;
+        for(int i = j; i < size; i++){
+            if(small > arr[i]){
+                small = arr[i];
+                loc = i;
             }
-            else{
-                arr[k] = rightA[j];
-                j++;
-            }
-            k++;
         }
-        while(i < size1){
-            arr[k] = leftA[i];
-            i++;
-            k++;
-        }
-        while(j < size2){
-            arr[k] = rightA[j];
-            j++;
-            k++;
-        }
+        swap(arr[loc], arr[j]);
     }
+    return arr;
 }
+
 int userInInt(){
 	int temp;
 	cin >> temp;
