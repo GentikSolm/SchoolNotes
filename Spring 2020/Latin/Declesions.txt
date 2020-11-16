@@ -30,7 +30,7 @@ Abl		e		ebus	|
 
 
 Nomative	-Subject
-Genative	-possession, "from"
+Genative	-possession, "from", "Of"
 Dative		-"To" or "For"
 Accusative	-direct Object
 Ablative	-preposition, "on", "under"
