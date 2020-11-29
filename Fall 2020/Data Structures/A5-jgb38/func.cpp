@@ -4,7 +4,9 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <queue>
 using std::cin;
+using std::queue;
 using std::cout;
 using std::ifstream;
 using std::string;
@@ -72,4 +74,32 @@ void avgFolls(myVec followCounts){
 }
 void medFolls(myVec followCounts){
     cout << "Median ammount of followers: " << followCounts[followCounts.size()/2-1].follows << endl;
+}
+void findPath(myMap list, string start, string end){
+    queue<string> path;
+    map<string, bool> marked;
+    if(!findPath(list, end, start, path, marked)){
+        cout << "No path was found!\n";
+        return;
+    }
+}
+bool findPath(myMap list, string start, string end, queue<string> path, map<string, bool> marked){
+    string user;
+    path.push(start);
+    while(!path.empty()){
+        user = path.front();
+        path.pop();
+        marked[user] = true;
+        if(user == end){
+            cout << user;
+            return true;
+        }
+        for(node* iter = list[user]; iter!=nullptr; iter = iter->next){
+            if(!marked[iter->user]){
+                marked[iter->user] = true;
+                path.push(iter->user);
+            }
+        }
+    }
+    return false;
 }
