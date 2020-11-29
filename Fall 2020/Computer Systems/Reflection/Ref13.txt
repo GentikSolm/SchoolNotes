@@ -1,0 +1,32 @@
+Class Reflection week 13.
+This week in class, 5 important things I have learned are as follows;
+First: Direct map caching. This is where each word is mapped by its binary address. The cache is build using blocks that are
+    determined by the cache block seats and tags. for each bin address, the first two bits are the tag, and the rest is the index.
+    This way the processor can quickly check for a hit (Correct word is already in cache) or miss (its not in cache) by checking the seat  + tag to see
+    if it is the correct item. V also tells the processor if a seat is filled. If V is 1 then the hit will process. If it is 0, the and control gate
+    will not open.
+    This is effective because it has a very low miss rate. These most likely happen when the cache is cleared or when new processes are started.
+    with only 2-4%. the misses are easy to deal with.
+Second: Disk Storage. After learning how slow disk storage is, and how it works, gives great insight for why a HDD is cheaper (its easier and cheaper to make)
+    vs something like SSD. A HDD is a spinning disk, where the disk is split into sectors. Each sector contains its ID, data, error code, and sync fields.
+    To access data, we have to add what we want to a que if something is already searching, move the pin head, rotate until we find what we want and then transfer
+    the data. At the end of the day, we can see average latency such as 3.2ms, which in terms of computing speed is very slow. This is why we use caching and
+    RAM, since they are so much faster than a spinning hard drive.
+Third:  Replacement policy. These are different types of rules for how the processor should determine what data slot gets replaced when a miss occurs.
+    for direct mapped cache this is simple, because there is no choice. Each data value has its determined slot. Set associative, we prefer non-valid entries
+    (empty slots) if there are any. If not then we choose one that is already there. Here we can do two things, Random or LRU. LRU sees what the least recently
+    used slot is, and random just chooses a random slot. LRU is hard for 4+ set associative, and there fore random will most likely be used because it has about the same effect
+    for high associativity. how does the processor determine a random slot? How can it generate a random number without a processing penalty
+Fourth: Associative cache. This is a different method of caching where there are multiple spaces for data in each set depending on the level of set Associative
+    For instance, in four-way, each set has 4 tags and 4 data slots. When a miss happens, it appends the desired word to the next available slot in the set.
+    If none are available, then it replaces depending on the policy. This can be better than direct mapped because the miss rate is considerably lower. This is because
+    every data item does not have to be in an assigned seat. Each piece of data can sit anywhere in its set. This has trade offs however because it can be expensive to
+    make such systems. It can also be slower to have to search over every set every time you want to search for an item. These trade off's must be weighed against the
+    miss rate to see which type of memory is better.
+Fifth: Dependability. This is the idea that one process has to depend on another when computing. If a process returns a value that is not expected, this is called a fault.
+    Faults Could lead to a system failure. Reliability is the mean time to failure, service interruption: mean time to repair. These are different because a failure does
+    not always mean that the system has to repair. Some errors can be dealt with without interruption of the main system. Mean time between failures is MTTF + MTTR.
+    Availability is MTFF/MTBF. Increase MTTF, which would cause the time between failures to increase, and reduce MTTR, which would be faster repair times.
+    We can use the hamming distance on bit patters that we know should be the same to identify incorrect bits in a system. If we have two identical bit patters, but then we
+    find a bit has failed and switch positions, we can use the hamming distance to determine which bit failed. When using a min distance of 2, we can do single bit error detection.
+    hamming distance of 3 provides single error correction, but 2 but error detection.
