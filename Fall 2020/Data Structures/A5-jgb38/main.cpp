@@ -22,4 +22,5 @@ int main(){
     cout << followCounts.size();
     //deletes adj list.
     adjList = delMap(adjList);
+    return 0;
 }
