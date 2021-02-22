@@ -35,13 +35,7 @@ int main(int argc, char *argv[])
     }
     else {
         std::string filename;
-        if(argv[1][0] == 's')
-        // the last file is the one used for sha256
-             filename = argv[2];
-        else{
-            filename = argv[3];
-        }
-
+        filename = argv[2];
       //read the file
         std::streampos begin,end;
         std::ifstream myfile (filename.c_str(), std::ios::binary);
@@ -67,7 +61,7 @@ int main(int argc, char *argv[])
         BigUnsigned signature = signatureString;
 
     if (argv[1][0]=='s') {
-        std::cout << "\n"<<"Need to sign the doc.\n";
+        std::cout << "\n"<<"Signing the doc.\n";
         //Most of this mess is just getting the keys
         std::ifstream privateKey;
         privateKey.open("d_n.txt");
@@ -87,10 +81,10 @@ int main(int argc, char *argv[])
         signedFile.open("file.txt.signature");
         signedFile << signature;
         signedFile.close();
-
+        std::cout << "Done!\n";
     }
     else {
-        std::cout << "\n"<<"Need to verify the doc.\n";
+        std::cout << "\n"<<"Verifying the doc...\n";
         //ditto
         std::ifstream publicKey;
         std::string temp1, temp2;
@@ -104,7 +98,7 @@ int main(int argc, char *argv[])
         publicKey.close();
 
         std::ifstream signedFile;
-        signedFile.open(argv[2]);
+        signedFile.open(argv[3]);
         BigUnsigned decryptSig;
         signedFile >> temp1;
         BigUnsignedInABase strDec(temp1, 10);

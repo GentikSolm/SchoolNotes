@@ -58,7 +58,7 @@ int main(){
         }
         prime << q;
         prime.close();
-
+        std::cout << "p_q.txt Generated\n";
         //  e is coprime prime to (p-1)*(q-1)
         BigUnsigned n = p*q;
         BigUnsigned phiN = (p-1)*(q-1);
@@ -73,7 +73,9 @@ int main(){
         e_n.open("e_n.txt");
         d_n.open("d_n.txt");
         e_n << e << endl << n;
+        std::cout << "e_n.txt Generated\n";
         d_n << d << endl << n;
+        std::cout << "d_n.txt Generated\n";
         e_n.close();
         d_n.close();
 
