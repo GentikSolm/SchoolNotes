@@ -12,31 +12,31 @@ import java.io.*;
 
 public class ConvexHull_GUI extends JPanel
 {
-   private ArrayList<Point> data2DPoints = new ArrayList<Point>();
-   private ArrayList<Point> convexHull = new ArrayList<Point>();
+  private ArrayList<Point> data2DPoints = new ArrayList<Point>();
+  private ArrayList<Point> convexHull = new ArrayList<Point>();
 
-   public ConvexHull_GUI() {
-      this.setPreferredSize(new Dimension(900,600));
+  public ConvexHull_GUI() {
+    this.setPreferredSize(new Dimension(900,600));
    }
   /*
-   public void setData(ArrayList<Point> d) {
-      this.data2DPoints = d;
-   }
-   public void setHull(ArrayList<Point> h) {
-      this.data2DPoints = h;
-   }
-   */
-   public ArrayList<Point> getData() {
-      return data2DPoints;
-   }
-   public ArrayList<Point> getHull() {
-      return convexHull;
-   }
+  public void setData(ArrayList<Point> d) {
+    this.data2DPoints = d;
+  }
+  public void setHull(ArrayList<Point> h) {
+    this.data2DPoints = h;
+  }
+  */
+  public ArrayList<Point> getData() {
+    return data2DPoints;
+  }
+  public ArrayList<Point> getHull() {
+    return convexHull;
+  }
 
-   public void readDataFile(String file, char dh)
-   {
-      System.out.println("reading a file ... ... ");
-      try {
+  public void readDataFile(String file, char dh)
+  {
+    System.out.println("reading a file ... ... ");
+    try {
          Scanner sc = new Scanner(new File(file));
          while (sc.hasNextLine())
          {
@@ -260,29 +260,35 @@ public class ConvexHull_GUI extends JPanel
       }
    }
 
-   public static void main(String[] args){
-      ConvexHull_GUI CH = new ConvexHull_GUI();
-      boolean generateData = false;
-      if (generateData){
-         CH.testFileGen("test.txt", "triangle", 1000); //generate data points
-         System.out.println("done");
-         System.exit(0);
-      }
-      else {
-         //visulizing the points and convex hull
-         String dataFile = "test.txt";
-         String hullFile = "hull.txt";
+  public static void main(String[] args){
+    ConvexHull_GUI CH = new ConvexHull_GUI();
+    boolean generateData = true;
+    if (generateData){
 
-         CH.readDataFile(dataFile, 'd');
-         System.out.println(dataFile + " has "+CH.getData().size()+" points.");
-         CH.readDataFile(hullFile, 'h');
-         System.out.println(hullFile + " has "+CH.getHull().size()+" points.");
-
-         JFrame jf = new JFrame("Convex Hull");
-         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         jf.add(CH);
-         jf.pack();
-         jf.setVisible(true);
+      String[] shapes = {"onCircle", "circle", "rectangle", "triangle"};
+      for(String shape : shapes){
+        for(int i = 10; i < 1000001; i*=10){
+          CH.testFileGen(shape + i + ".txt", shape, i); //generate data points
+        }
       }
-   }
+      System.out.println("done");
+      System.exit(0);
+    }
+    else {
+      //visulizing the points and convex hull
+      String dataFile = "test.txt";
+      String hullFile = "hull.txt";
+
+      CH.readDataFile(dataFile, 'd');
+      System.out.println(dataFile + " has "+CH.getData().size()+" points.");
+      CH.readDataFile(hullFile, 'h');
+      System.out.println(hullFile + " has "+CH.getHull().size()+" points.");
+
+      JFrame jf = new JFrame("Convex Hull");
+      jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      jf.add(CH);
+      jf.pack();
+      jf.setVisible(true);
+    }
+  }
 }
