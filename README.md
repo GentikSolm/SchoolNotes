@@ -6,7 +6,7 @@ Run the following in admin powershell
 to fix ubuntu issue with hyperv:
 bcdedit /set hypervisorlaunchtype auto
 to fix issue with andy:
-z
+bcdedit /set hypervisorlaunchtype off
 
 To start server, run:
     'http-server ./public'
