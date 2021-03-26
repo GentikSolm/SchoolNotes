@@ -126,8 +126,10 @@ int main(int argc, char *argv[])
       temp.y = y;
       points.push_back(temp);
     }
+
     dataFile.close();
     vector<Point> result;
+
 
     if (algType[0]=='G') {
       //call your Graham Scan algorithm to solve the problem
@@ -286,6 +288,8 @@ int main(int argc, char *argv[])
       }
       outFile.close();
     }
+    //write your convex hull to the outputFile (see class example for the format)
+    //you should be able to visulize your convex hull using the "ConvexHull_GUI" program.
 	}
 	return 0;
 }

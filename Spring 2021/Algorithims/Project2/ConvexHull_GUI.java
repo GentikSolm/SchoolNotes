@@ -277,7 +277,7 @@ public class ConvexHull_GUI extends JPanel
     else {
       //visulizing the points and convex hull
       String dataFile = args[0];
-      String hullFile = "hull_Q.txt";
+      String hullFile = "hull_J.txt";
 
       CH.readDataFile(dataFile, 'd');
       System.out.println(dataFile + " has "+CH.getData().size()+" points.");
