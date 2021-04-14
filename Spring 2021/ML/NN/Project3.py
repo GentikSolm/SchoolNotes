@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import axes3d   # must keep
 import numpy as np
 
+ledger = open("Scores.txt", "w")
+
 X, y = load_breast_cancer(return_X_y=True)
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
 # Splits the data
@@ -19,18 +21,29 @@ scatter = scatter_matrix(X_train, c= y_train, marker = 'o', s=40, hist_kwds={'bi
 totalScores = []
 for activation in ['logistic', 'relu', 'tanh', 'identity']:
     for decent in ['lbfgs', 'sgd', 'adam']:
-        for i in range(5, 100, 5):
-            for j in range(5, 100, 5):
-                for k in range(5, 100, 5):
-                    for alpha in [.0001, .001, .01, .1]:
+        for alpha in [.0001, .001, .01, .1]:
+            for i in range(5, 100, 5):
+                neural = MLPClassifier(random_state = 1, activation=activation, solver=decent, alpha=alpha, hidden_layer_sizes=(i))
+                neural.fit(X_train, y_train)
+                score = neural.score(X_test, y_test)
+                totalScores.append([score, [activation, decent, alpha, i]])
+                for j in range(5, 100, 5):
+                    neural = MLPClassifier(random_state = 1, activation=activation, solver=decent, alpha=alpha, hidden_layer_sizes=(i, j))
+                    neural.fit(X_train, y_train)
+                    score = neural.score(X_test, y_test)
+                    totalScores.append([score, [activation, decent, alpha, i, j]])
+                    for k in range(5, 100, 5):
                         neural = MLPClassifier(random_state = 1, activation=activation, solver=decent, alpha=alpha, hidden_layer_sizes=(i, j, k))
                         neural.fit(X_train, y_train)
                         score = neural.score(X_test, y_test)
                         totalScores.append([score, [activation, decent, alpha, i, j, k]])
 print("Unscaled: ")
-sorted(totalScores, key=lambda x: x[0])
+ledger.write("Unscaled:\n")
+sotrtedScores = sorted(totalScores, key=lambda x: x[0])
 for i in range(10):
-    print(totalScores[i])
+    print(sotrtedScores[i])
+    ledger.write(sotrtedScores[i])
+    ledger.write('\n')
 
 X, y = load_breast_cancer(return_X_y=True)
 scale(X)
@@ -38,15 +51,27 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
 totalScoresScaled = []
 for activation in ['logistic', 'relu', 'tanh', 'identity']:
     for decent in ['lbfgs', 'sgd', 'adam']:
-        for i in range(5, 100, 5):
-            for j in range(5, 100, 5):
-                for k in range(5, 100, 5):
-                    for alpha in [.0001, .001, .01, .1]:
+        for alpha in [.0001, .001, .01, .1]:
+            for i in range(5, 100, 5):
+                neural = MLPClassifier(random_state = 1, activation=activation, solver=decent, alpha=alpha, hidden_layer_sizes=(i))
+                neural.fit(X_train, y_train)
+                score = neural.score(X_test, y_test)
+                totalScoresScaled.append([score, [activation, decent, alpha, i]])
+                for j in range(5, 100, 5):
+                    neural = MLPClassifier(random_state = 1, activation=activation, solver=decent, alpha=alpha, hidden_layer_sizes=(i, j))
+                    neural.fit(X_train, y_train)
+                    score = neural.score(X_test, y_test)
+                    totalScoresScaled.append([score, [activation, decent, alpha, i, j]])
+                    for k in range(5, 100, 5):
                         neural = MLPClassifier(random_state = 1, activation=activation, solver=decent, alpha=alpha, hidden_layer_sizes=(i, j, k))
                         neural.fit(X_train, y_train)
                         score = neural.score(X_test, y_test)
                         totalScoresScaled.append([score, [activation, decent, alpha, i, j, k]])
 print("\nScaled: ")
-sorted(totalScoresScaled, key=lambda x: x[0])
+ledger.write("\nScaled:\n")
+sotrtedScores = sorted(totalScoresScaled, key=lambda x: x[0])
 for i in range(10):
-    print(totalScoresScaled[i])
+    print(sotrtedScores[i])
+    ledger.write(sotrtedScores[i])
+    ledger.write('\n')
+ledger.close()
