@@ -50,7 +50,7 @@ int main(int argc, char** argv){
   }
   std::ofstream outFile;
   outFile.open(outFileName.c_str());
-  outFile << "P2\n" << "#Seam Carved image of " << fileName << "\n" << cols << rows << std::endl << "255" << std::endl;
+  outFile << "P2\n" << "#Seam Carved image of " << fileName << "\n" << cols << " "<< rows << std::endl << "255" << std::endl;
   for(int i = 0; i < rows; i++){
     for(int j = 0; j < cols-1; j++){
       outFile << imageMatrix[i][j] << ' ';
