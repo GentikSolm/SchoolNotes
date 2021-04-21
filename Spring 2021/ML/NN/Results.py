@@ -15,10 +15,9 @@ myList = [[0.972027972027972, ['relu', 'lbfgs', 0.0001, 15, 15, 0]], [0.97202797
 # myList is a list of the top 10 fits
 X, y = load_breast_cancer(return_X_y=True, as_frame=True)
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=2)
-# cmap = cm.get_cmap('gnuplot')
-# scatter = scatter_matrix(X_train, c= y_train, marker = 'o', s=40, hist_kwds={'bins':15}, figsize=(9,9), cmap=cmap)
-# plt.show()
-scores = []
+cmap = cm.get_cmap('gnuplot')
+scatter = scatter_matrix(X_train, c= y_train, marker = 'o', s=40, hist_kwds={'bins':15}, figsize=(9,9), cmap=cmap)
+plt.show()
 for i in myList:
     if i[1][5] == 0:
         neural = MLPClassifier(random_state = 1, activation=i[1][0], solver=i[1][1], alpha=i[1][2], hidden_layer_sizes=(i[1][3], i[1][4]))
@@ -26,9 +25,6 @@ for i in myList:
         neural = MLPClassifier(random_state = 1, activation=i[1][0], solver=i[1][1], alpha=i[1][2], hidden_layer_sizes=(i[1][3], i[1][4], i[1][5]))
     neural.fit(X_train, y_train)
     score = neural.score(X_test, y_test)
-    # plot_confusion_matrix(neural, X_test, y_test, display_labels=["B", "M"])
-    # plt.title(i)
-    # plt.show()
-    scores.append(score)
-for i in scores:
-    print(i)
+    plot_confusion_matrix(neural, X_test, y_test, display_labels=["B", "M"])
+    plt.title(i)
+    plt.show()
